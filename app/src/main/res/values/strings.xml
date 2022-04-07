@@ -3,4 +3,24 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="our_beers">Our beers</string>
+    <string name="go_to_detail">Go to detail</string>
+    <string name="search">Search</string>
+    <string name="results">Results</string>
+    <string name="ichnusa">Ichnusa unfiltered</string>
+    <string name="birra_messina">Birra Messina salt crystals</string>
+    <string name="tennents_super">Tennent\'s Super</string>
+    <string name="small_beer">33 cl</string>
+    <string name="medium_beer">66 cl</string>
+    <string name="preview_ichnusa">Bright golden yellow color with fine and persistent foam.</string>
+    <string name="preview_messina">Bright golden yellow color with a natural opalescence,
+        it has a compact and persistent foam.</string>
+    <string name="preview_tennents">Beautiful bright golden yellow color with a white head of little
+        persistence.</string>
+    <string name="detail_ichnusa">Bright golden yellow color with fine and persistent foam.
+        The nose releases aromas of orange blossom, caramel and hops, accompanied by a delicate hint
+        of honey in a complex of elegance and pleasantness that is also confirmed on the palate,
+        where freshness and roundness envelop a moderately persistence bitter and well balanced.
+        \ u000D \ n \ u000D \ nIdeal for an aperitif of cheeses and salami, it also goes well with
+        tasty baked fish.</string>
 </resources>
