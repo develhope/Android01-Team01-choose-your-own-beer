@@ -1,15 +1,9 @@
 package com.example.chooseyourownbeer
 
-object Beers {
-    data class Beer(
-        val imagePath: String,
-        val title: String,
-        val size: Double,
-        val shortDescription: String,
-        val fullDescription: String,
-        var favorite: Boolean
-    )
+import com.example.chooseyourownbeer.model.Beer
+import java.util.*
 
+object Beers {
     private val ichnusa = Beer(
         "./res/drawable/ichnusa.png",
         "Ichnusa non filtrata",
@@ -51,13 +45,14 @@ object Beers {
         true
     )
 
-    private val beerList: MutableList<Beer> = mutableListOf(ichnusa, messina, tennents, heineken, peroni)
+    private val beerList: List<Beer> = listOf(ichnusa, messina, tennents, heineken, peroni)
 
-    fun getBeers(): MutableList<Beer> {
+    fun getBeers(): List<Beer> {
         return beerList
     }
 
     fun switchFavorite(beer: Beer) {
-        beer.favorite = !beer.favorite
+        val newFavourite = beer.copy(favourite = !beer.favourite)
+        Collections.replaceAll(beerList, beer, newFavourite)
     }
 }
