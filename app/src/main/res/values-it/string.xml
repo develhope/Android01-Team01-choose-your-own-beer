@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scegli la tua birra</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Pannello</string>
+    <string name="title_notifications">Notifiche</string>
+    <string name="our_beers">Le nostre birre</string>
+    <string name="go_to_detail">Vai al dettaglio</string>
+    <string name="search">Cerca</string>
+    <string name="results">Risultati</string>
+    <string name="ichnusa">Ichnusa non filtrata</string>
+    <string name="birra_messina">Birra Messina cristalli di sale</string>
+    <string name="tennents_super">Tennent\'s Super</string>
+    <string name="small_size">33 cl</string>
+    <string name="medium_size">66 cl</string>
+    <string name="preview_ichnusa">Colore giallo dorato luminoso con schiuma fine e persistente.</string>
+    <string name="preview_messina">Colore giallo dorato luminoso con una naturale opalescenza,
+        ha schiuma compatta e persistente.</string>
+    <string name="preview_tennents">Bel colore giallo dorato luminoso con schiuma bianca di poca
+        persistenza.</string>
+    <string name="detail_ichnusa">Colore giallo dorato luminoso con schiuma fine e persistente.
+        Al naso sprigiona aromi di fiori d\'arancio, caramello e luppolo, accompagnati da un
+        delicato sentore di miele in un complesso di eleganza e piacevolezza che si conferma anche
+        all\'assaggio, dove freschezza e rotondit\u00C3\u00A0 avvolgono una persistenza moderatamente
+        amarognola di grande equilibrio.\u000D\n\u000D\nIdeale per un aperitivo di formaggi e salumi,
+        si accompagna bene anche a pesci al forno saporiti. </string>
+</resources>
