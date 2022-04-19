@@ -1,6 +1,6 @@
 package com.example.chooseyourownbeer.model
 
-data class Beer(val imagePath: String,
+data class Beer(val imagePath: Int,
                 val title: String,
                 val size: Double,
                 val shortDescription: String,

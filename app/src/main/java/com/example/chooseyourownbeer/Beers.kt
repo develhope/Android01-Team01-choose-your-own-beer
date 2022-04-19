@@ -5,7 +5,7 @@ import java.util.*
 
 object Beers {
     private val ichnusa = Beer(
-        "./res/drawable/ichnusa.png",
+        R.drawable.ichnusa,
         "Ichnusa non filtrata",
         33.0,
         "Lorem Ipsum",
@@ -13,7 +13,7 @@ object Beers {
         false
     )
     private val messina = Beer(
-        "./res/drawable/birra_messina.png",
+        R.drawable.birra_messina,
         "Birra Messina Cristalli Di sale",
         66.0,
         "Lorem Ipsum",
@@ -21,7 +21,7 @@ object Beers {
         false
     )
     private val tennents = Beer(
-        "./res/drawable/tennets.png",
+        R.drawable.tennets,
         "Tennent's Super",
         33.0,
         "Lorem Ipsum",
@@ -29,7 +29,7 @@ object Beers {
         true
     )
     private val heineken = Beer(
-        "./res/drawable/ichnusa.png",
+        R.drawable.ichnusa,
         "Heineken",
         66.0,
         "Lorem Ipsum",
@@ -37,7 +37,7 @@ object Beers {
         false
     )
     private val peroni = Beer(
-        "./res/drawable/birra_messina.png",
+        R.drawable.birra_messina,
         "Peroni",
         33.0,
         "Lorem Ipsum",
