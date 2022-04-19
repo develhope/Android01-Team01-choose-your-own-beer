@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/cardview_default_radius"
         android:elevation="@dimen/cardview_default_elevation"
-        android:layout_marginTop="24sp"
+        android:layout_marginTop="24dp"
         android:layout_gravity="center"
         style="@style/Base.CardView"
         >
@@ -32,15 +31,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ichnusa"
-                />
+                 />
 
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
-                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/ichnusa"
                 app:layout_constraintStart_toEndOf="@+id/imagePath"
                 app:layout_constraintTop_toTopOf="@+id/imagePath"
@@ -52,15 +50,14 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:text="@string/small_size"
-                android:textAllCaps="false"
                 app:layout_constraintStart_toStartOf="@+id/title"
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 style="@style/beer_text.detailed_view"/>
 
             <TextView
                 android:id="@+id/shortDescription"
-                android:layout_width="172dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_width="160dp"
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="28dp"
                 android:text="@string/preview_ichnusa"
@@ -76,8 +73,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/go_to_detail"
-                android:textAllCaps="false"
-                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/shortDescription"
                 app:layout_constraintTop_toBottomOf="@+id/shortDescription"
                 style="@style/button"/>
@@ -86,11 +82,11 @@
                 android:id="@+id/icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imagePath"
-                app:srcCompat="@drawable/emptystar"
-                tools:layout_editor_absoluteX="21dp" />
+                app:srcCompat="@drawable/emptystar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
