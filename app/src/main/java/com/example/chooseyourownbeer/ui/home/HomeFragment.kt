@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-// import com.example.chooseyourownbeer.BeerAdapter
+import com.example.chooseyourownbeer.BeerAdapter
 import com.example.chooseyourownbeer.Beers
 import com.example.chooseyourownbeer.R
 import com.example.chooseyourownbeer.databinding.FragmentHomeBinding
@@ -39,13 +40,17 @@ class HomeFragment : Fragment() {
 
         val beerList = Beers.getBeers()
         val list = getView()?.findViewById<RecyclerView>(R.id.beer_list)
-       // val adapter = BeerAdapter(beerList)
-       /* if (list != null) {
+        val adapter = BeerAdapter(beerList)
+       if (list != null) {
             list.adapter = adapter
         }
         if (list != null) {
             list.layoutManager = LinearLayoutManager(context)
-        }*/
+        }
+
+        binding.beerList.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_beerDetail)
+        }
     }
 
     override fun onDestroyView() {
