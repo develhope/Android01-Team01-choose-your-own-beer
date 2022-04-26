@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer.model
+package co.develhope.chooseyourownbeer.model
 
 data class Beer(val imagePath: Int,
                 val title: String,

@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer.ui.home
+package co.develhope.chooseyourownbeer.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chooseyourownbeer.BeerAdapter
-import com.example.chooseyourownbeer.Beers
-import com.example.chooseyourownbeer.R
-import com.example.chooseyourownbeer.databinding.FragmentHomeBinding
+import co.develhope.chooseyourownbeer.BeerAdapter
+import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.R
+import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
