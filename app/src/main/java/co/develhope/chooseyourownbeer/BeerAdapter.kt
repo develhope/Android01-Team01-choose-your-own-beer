@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer
+package co.develhope.chooseyourownbeer
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.model.Beer
 
 class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-   /* val beerImage: ImageView
+    val beerImage: ImageView
     val beerTitle: TextView
     val beerSize: TextView
     val beerDesc: TextView
@@ -19,10 +19,10 @@ class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         beerTitle = view.findViewById(R.id.title)
         beerSize = view.findViewById(R.id.size)
         beerDesc = view.findViewById(R.id.shortDescription)
-    } */
+    }
 }
 
-/* class BeerAdapter(val beerList: List<Beer>) : RecyclerView.Adapter<BeerViewHolder>() {
+ class BeerAdapter(val beerList: List<Beer>) : RecyclerView.Adapter<BeerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val beerView =
             LayoutInflater.from(parent.context).inflate(R.layout.beer_layout, parent, false)
@@ -39,4 +39,4 @@ class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     override fun getItemCount(): Int {
         return beerList.size
     }
-} */
+}

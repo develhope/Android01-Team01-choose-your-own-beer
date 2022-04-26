@@ -7,19 +7,28 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.chooseyourownbeer.ui.home.HomeFragment"
+        android:name="co.develhope.chooseyourownbeer.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_beerDetail"
+            app:destination="@id/beerDetail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.chooseyourownbeer.ui.dashboard.DashboardFragment"
+        android:name="co.develhope.chooseyourownbeer.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.chooseyourownbeer.ui.notifications.NotificationsFragment"
+        android:name="co.develhope.chooseyourownbeer.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/beerDetail"
+        android:name="co.develhope.chooseyourownbeer.BeerDetail"
+        android:label="beer_detail"
+        tools:layout="@layout/beer_detail" />
 </navigation>
