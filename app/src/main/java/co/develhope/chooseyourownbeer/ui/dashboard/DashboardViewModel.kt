@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer.ui.dashboard
+package co.develhope.chooseyourownbeer.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

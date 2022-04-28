@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer
+package co.develhope.chooseyourownbeer
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.chooseyourownbeer.databinding.ActivityMainBinding
+import co.develhope.chooseyourownbeer.R
+import co.develhope.chooseyourownbeer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

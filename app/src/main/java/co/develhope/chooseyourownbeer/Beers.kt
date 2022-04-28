@@ -1,6 +1,7 @@
-package com.example.chooseyourownbeer
+package co.develhope.chooseyourownbeer
 
-import com.example.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.R
 import java.util.*
 
 object Beers {
