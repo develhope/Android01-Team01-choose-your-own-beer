@@ -2,7 +2,7 @@
     <string name="app_name">ChooseYourOwnBeer</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="our_beers">Our beers</string>
     <string name="go_to_detail">Go to detail</string>
     <string name="search">Search</string>
@@ -23,4 +23,10 @@
         where freshness and roundness envelop a moderately persistence bitter and well balanced.
         \ u000D \ n \ u000D \ nIdeal for an aperitif of cheeses and salami, it also goes well with
         tasty baked fish.</string>
+    <string name="settings_text">Settings</string>
+    <string name="profile_name_text">Full Name</string>
+    <string name="app_version_text">App version = 1.0.0</string>
+    <string name="email_input_text">Insert your email</string>
+    <string name="contact_btn_text">Contact us</string>
+    <string name="logout_btn_text">Logout</string>
 </resources>
