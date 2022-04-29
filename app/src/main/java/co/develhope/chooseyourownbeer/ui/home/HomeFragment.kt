@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.chooseyourownbeer.BeerAction
 import co.develhope.chooseyourownbeer.BeerAdapter
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
@@ -39,19 +40,19 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val beerList = Beers.getBeers()
-        val list = getView()?.findViewById<RecyclerView>(R.id.beer_list)
-        val adapter = BeerAdapter(beerList)
-       if (list != null) {
-            list.adapter = adapter
-        }
-        if (list != null) {
-            list.layoutManager = LinearLayoutManager(context)
-        }
 
-        binding.beerList.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_beerDetail)
+        binding.beerList.apply {
+            adapter = BeerAdapter(beerList) { action -> OnAdapterClick(action) }
+            layoutManager= LinearLayoutManager(context)
         }
     }
+        private fun OnAdapterClick(action:BeerAction){
+            when (action) {
+    //          BeerAction.OnStarClick
+                BeerAction.OnGoToDetailPageClick -> findNavController().navigate(R.id.action_navigation_home_to_beerDetail)
+            }
+        }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
