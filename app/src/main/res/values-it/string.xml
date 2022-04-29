@@ -24,6 +24,8 @@
         all\'assaggio, dove freschezza e rotondit\u00C3\u00A0 avvolgono una persistenza moderatamente
         amarognola di grande equilibrio.\u000D\n\u000D\nIdeale per un aperitivo di formaggi e salumi,
         si accompagna bene anche a pesci al forno saporiti. </string>
+    <string name="content_description">immagine della birra</string>
+    <string name="favourite_button">preferito</string>
     <string name="settings_text">Impostazioni</string>
     <string name="profile_name_text">Nome Cognome</string>
     <string name="app_version_text">App version = 1.0.0</string>

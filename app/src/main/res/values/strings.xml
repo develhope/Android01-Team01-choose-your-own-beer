@@ -23,6 +23,8 @@
         where freshness and roundness envelop a moderately persistence bitter and well balanced.
         \ u000D \ n \ u000D \ nIdeal for an aperitif of cheeses and salami, it also goes well with
         tasty baked fish.</string>
+    <string name="content_description">beer image</string>
+    <string name="favourite_button">favourite</string>
     <string name="settings_text">Settings</string>
     <string name="profile_name_text">Full Name</string>
     <string name="app_version_text">App version = 1.0.0</string>
