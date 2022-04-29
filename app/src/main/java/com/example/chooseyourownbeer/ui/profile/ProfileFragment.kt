@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.chooseyourownbeer.databinding.FragmentProfileBinding
+import co.develhope.chooseyourownbeer.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 

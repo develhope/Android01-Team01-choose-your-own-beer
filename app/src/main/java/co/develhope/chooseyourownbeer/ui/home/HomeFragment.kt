@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chooseyourownbeer.BeerAdapter
-import com.example.chooseyourownbeer.Beers
-import com.example.chooseyourownbeer.R
-import com.example.chooseyourownbeer.databinding.FragmentHomeBinding
+import co.develhope.chooseyourownbeer.BeerAdapter
+import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.R
+import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
+
 
 class HomeFragment : Fragment() {
 

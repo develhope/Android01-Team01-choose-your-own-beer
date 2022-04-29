@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer
+package co.develhope.chooseyourownbeer
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.R
+
 
 class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 val beerImage: ImageView
