@@ -11,7 +11,7 @@ import co.develhope.chooseyourownbeer.model.Beer
 
 sealed class BeerAction(){
     object OnStarClick : BeerAction()
-    object OnGoToDetailPageClick : BeerAction()
+    data class OnGoToDetailPageClick (val beer: Beer): BeerAction()
 }
 
  class BeerAdapter(val beerList: List<Beer>, val onBeerClick: (BeerAction) -> Unit) : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
@@ -30,7 +30,7 @@ sealed class BeerAction(){
              onBeerClick(BeerAction.OnStarClick)
          }
          holder.button.setOnClickListener {
-             onBeerClick(BeerAction.OnGoToDetailPageClick)
+             onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
          }
      }
 
