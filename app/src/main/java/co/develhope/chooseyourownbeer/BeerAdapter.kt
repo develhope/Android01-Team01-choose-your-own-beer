@@ -7,9 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.R
+
 
 class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val beerImage: ImageView
+val beerImage: ImageView
     val beerTitle: TextView
     val beerSize: TextView
     val beerDesc: TextView
@@ -22,7 +24,7 @@ class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 }
 
- class BeerAdapter(val beerList: List<Beer>) : RecyclerView.Adapter<BeerViewHolder>() {
+class BeerAdapter(val beerList: List<Beer>) : RecyclerView.Adapter<BeerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val beerView =
             LayoutInflater.from(parent.context).inflate(R.layout.beer_layout, parent, false)

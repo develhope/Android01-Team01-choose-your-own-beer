@@ -1,18 +1,17 @@
-package co.develhope.chooseyourownbeer.ui.home
+package com.example.chooseyourownbeer.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.BeerAdapter
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
+
 
 class HomeFragment : Fragment() {
 
@@ -27,9 +26,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -46,10 +42,6 @@ class HomeFragment : Fragment() {
         }
         if (list != null) {
             list.layoutManager = LinearLayoutManager(context)
-        }
-
-        binding.beerList.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_beerDetail)
         }
     }
 

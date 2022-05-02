@@ -3,7 +3,7 @@
     <string name="app_name">Scegli la tua birra</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Pannello</string>
-    <string name="title_notifications">Notifiche</string>
+    <string name="title_profile">Profilo</string>
     <string name="our_beers">Le nostre birre</string>
     <string name="go_to_detail">Vai al dettaglio</string>
     <string name="search">Cerca</string>
@@ -18,8 +18,18 @@
         ha schiuma compatta e persistente.</string>
     <string name="preview_tennents">Bel colore giallo dorato luminoso con schiuma bianca di poca
         persistenza.</string>
-    <string name="detail_ichnusa">Colore giallo dorato luminoso con schiuma fine e persistente. Al naso sprigiona aromi di fiori d\'arancio, caramello e luppolo, accompagnati da un delicato sentore di miele in un complesso di eleganza e piacevolezza che si conferma anche all\'assaggio, dove freschezza e rotondit\u00C3\u00A0 avvolgono una persistenza moderatamente amarognola di grande equilibrio. \n \n Ideale per un aperitivo di formaggi e salumi,
+    <string name="detail_ichnusa">Colore giallo dorato luminoso con schiuma fine e persistente.
+        Al naso sprigiona aromi di fiori d\'arancio, caramello e luppolo, accompagnati da un
+        delicato sentore di miele in un complesso di eleganza e piacevolezza che si conferma anche
+        all\'assaggio, dove freschezza e rotondit\u00C3\u00A0 avvolgono una persistenza moderatamente
+        amarognola di grande equilibrio.\u000D\n\u000D\nIdeale per un aperitivo di formaggi e salumi,
         si accompagna bene anche a pesci al forno saporiti. </string>
     <string name="content_description">immagine della birra</string>
     <string name="favourite_button">preferito</string>
+    <string name="settings_text">Impostazioni</string>
+    <string name="profile_name_text">Nome Cognome</string>
+    <string name="app_version_text">App version = 1.0.0</string>
+    <string name="email_input_text">Inserisci la tua email</string>
+    <string name="contact_btn_text">Contattaci</string>
+    <string name="logout_btn_text">Logout</string>
 </resources>
