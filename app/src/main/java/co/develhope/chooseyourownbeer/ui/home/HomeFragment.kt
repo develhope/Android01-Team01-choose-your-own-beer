@@ -52,9 +52,9 @@ class HomeFragment : Fragment() {
     }
         private fun OnAdapterClick(action:BeerAction){
             when (action) {
-    //          BeerAction.OnStarClick
+    //        is BeerAction.OnStarClick
               is BeerAction.OnGoToDetailPageClick -> {
-                    val idBeer= action.beer
+                  val idBeer= action.beer.id
                   val bundle= bundleOf("BEER_ID" to idBeer)
                     findNavController().navigate(R.id.action_navigation_home_to_beerDetail, bundle)
                 }

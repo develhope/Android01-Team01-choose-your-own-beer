@@ -21,11 +21,15 @@ class BeerDetail : Fragment() {
         _binding = BeerDetailBinding.inflate(inflater, container, false)
         val beerId= arguments?.getLong("BEER_ID") ?: 0
         val beer = getBeerFromId(beerId)
+        getBeerFromId(beerId)?.let { setupUI(it) }
         return binding.root
 
     }
     fun setupUI(beer: Beer) {
-
+        binding.imageBeer.setImageResource(beer.imagePath)
+        binding.titleBeer.text = beer.title
+        binding.size.text = beer.size.toString()
+        binding.longDescription.text = beer.fullDescription
     }
     override fun onDestroyView() {
         super.onDestroyView()

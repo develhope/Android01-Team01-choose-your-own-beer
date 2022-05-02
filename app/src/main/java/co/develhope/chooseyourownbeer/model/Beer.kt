@@ -1,9 +1,9 @@
 package co.develhope.chooseyourownbeer.model
 
 data class Beer(val id: Long,
-                val imagePath: Int,
-                val title: String,
-                val size: Double,
+                var imagePath: Int,
+                var title: String,
+                var size: Double,
                 val shortDescription: String,
-                val fullDescription: String,
+                var fullDescription: String,
                 val favourite: Boolean)
