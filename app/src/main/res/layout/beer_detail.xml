@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".BeerDetail">
 
@@ -10,6 +10,7 @@
         android:id="@+id/favourite_button"
         android:layout_width="32.81dp"
         android:layout_height="31.48dp"
+        android:background="@color/white"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25.09dp"
         android:layout_marginTop="281.76dp"
@@ -39,13 +40,12 @@
         android:layout_alignParentTop="true"
         android:gravity="top"
         android:lineSpacingExtra="-5sp"
-        android:text="@string/ichnusa"
         android:layout_marginTop="345dp"
         android:layout_marginStart="25dp"
         android:textAppearance="@style/beer_name.detailed_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        tools:text="@string/ichnusa"/>
 
     <TextView
         android:id="@+id/size"
@@ -55,12 +55,11 @@
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="381dp"
-        android:text="@string/small_size"
         android:textAppearance="@style/beer_text.size_detailed_view"
         android:gravity="top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        tools:text="@string/small_size"/>
 
     <TextView
         android:id="@+id/longDescription"
@@ -74,7 +73,8 @@
         android:text="@string/detail_ichnusa"
         android:textAppearance="@style/beer_text.detailed_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/detail_ichnusa"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
