@@ -1,17 +1,15 @@
-package co.develhope.chooseyourownbeer.ui.dashboard
+package co.develhope.chooseyourownbeer.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import co.develhope.chooseyourownbeer.databinding.FragmentDashboardBinding
+import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 
-class DashboardFragment : Fragment() {
+class SearchFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentSearchBinding? = null
 
     private val binding get() = _binding!!
 
@@ -21,7 +19,7 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 

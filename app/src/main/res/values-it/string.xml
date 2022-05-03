@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Scegli la tua birra</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Pannello</string>
+    <string name="title_search">Cerca</string>
     <string name="title_profile">Profilo</string>
     <string name="our_beers">Le nostre birre</string>
     <string name="go_to_detail">Vai al dettaglio</string>
