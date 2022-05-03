@@ -1,4 +1,4 @@
-package com.example.chooseyourownbeer.ui.profile
+package co.develhope.chooseyourownbeer.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
