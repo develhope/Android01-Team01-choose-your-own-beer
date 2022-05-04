@@ -46,7 +46,7 @@ class SearchFragment : Fragment() {
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer= action.beer.id
                 val bundle= bundleOf("BEER_ID" to idBeer)
-                findNavController().navigate(R.id.action_navigation_home_to_beerDetail, bundle)
+                findNavController().navigate(R.id.action_navigation_search_to_beerDetail, bundle)
             }
         }
     }
