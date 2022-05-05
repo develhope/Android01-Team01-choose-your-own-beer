@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -15,7 +16,6 @@
         android:elevation="@dimen/cardview_default_elevation"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
-        style="@style/Base.CardView"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/ichnusa"
@@ -78,14 +78,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/shortDescription"
                 style="@style/button"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@null"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginBottom="19dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagePath"
                 app:srcCompat="@drawable/emptystar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

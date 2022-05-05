@@ -9,7 +9,7 @@ object Beers {
         R.drawable.ichnusa,
         "Ichnusa non filtrata",
         33.0,
-        "Lorem Ipsum",
+        "Colore giallo dorato luminoso con schiuma fine e persistente.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         false
     )
@@ -17,7 +17,7 @@ object Beers {
         R.drawable.birra_messina,
         "Birra Messina Cristalli Di sale",
         66.0,
-        "Lorem Ipsum",
+        "Colore giallo dorato luminoso con una naturale opalescenza ha schiuma compatta e persistente.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         false
     )
@@ -25,23 +25,23 @@ object Beers {
         R.drawable.tennets,
         "Tennent's Super",
         33.0,
-        "Lorem Ipsum",
+        "Bel colore giallo dorato luminoso con schiuma bianca di poca persistenza.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         true
     )
     private val heineken = Beer(4,
-        R.drawable.ichnusa,
+        R.drawable.heineken,
         "Heineken",
         66.0,
-        "Lorem Ipsum",
+        "È una birra lager al malto d'orzo e luppolo, facile da bere e di gusto pulito.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         false
     )
     private val peroni = Beer(5,
-        R.drawable.birra_messina,
+        R.drawable.peroni,
         "Peroni",
         33.0,
-        "Lorem Ipsum",
+        "È la lager italiana che unisce tutti da Nord a Sud, per offrire a tutti noi una bira",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         true
     )
