@@ -20,6 +20,11 @@
         android:name="co.develhope.chooseyourownbeer.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
+    <action
+        android:id="@+id/action_navigation_search_to_beerDetail"
+        app:destination="@id/beerDetail"
+        r
+        />
 
     <fragment
         android:id="@+id/navigation_profile"

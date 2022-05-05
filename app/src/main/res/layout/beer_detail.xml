@@ -1,47 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
     tools:context=".BeerDetail">
-
-    <ImageButton
-        android:id="@+id/favourite_button"
-        android:layout_width="32.81dp"
-        android:layout_height="31.48dp"
-        android:background="@color/white"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25.09dp"
-        android:layout_marginTop="281.76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/emptystar"
-        android:contentDescription="@string/favourite_button" />
 
     <ImageView
         android:id="@+id/imageBeer"
         android:layout_width="153dp"
         android:layout_height="242dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="111dp"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="55dp"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ichnusa"
         android:contentDescription="@string/content_description" />
 
+    <ImageButton
+        android:id="@+id/favourite_button"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/emptystar"
+        android:contentDescription="@string/favourite_button" />
+
     <TextView
         android:id="@+id/titleBeer"
-        android:layout_width="239dp"
-        android:layout_height="28dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="top"
-        android:lineSpacingExtra="-5sp"
-        android:layout_marginTop="345dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginTop="31dp"
         android:textAppearance="@style/beer_name.detailed_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +44,9 @@
 
     <TextView
         android:id="@+id/size"
-        android:layout_width="42dp"
-        android:layout_height="27dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="381dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:textAppearance="@style/beer_text.size_detailed_view"
         android:gravity="top"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,13 +55,10 @@
 
     <TextView
         android:id="@+id/longDescription"
-        android:layout_width="327dp"
-        android:layout_height="273dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="440dp"
-        android:gravity="top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="24dp"
         android:text="@string/detail_ichnusa"
         android:textAppearance="@style/beer_text.detailed_view"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,4 +66,4 @@
         tools:text="@string/detail_ichnusa"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout >
