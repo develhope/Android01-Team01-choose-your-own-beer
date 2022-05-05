@@ -22,9 +22,7 @@
         tools:layout="@layout/fragment_search" />
     <action
         android:id="@+id/action_navigation_search_to_beerDetail"
-        app:destination="@id/beerDetail"
-        r
-        />
+        app:destination="@id/beerDetail"/>
 
     <fragment
         android:id="@+id/navigation_profile"
