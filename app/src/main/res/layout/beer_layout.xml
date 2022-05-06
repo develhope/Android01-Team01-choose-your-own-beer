@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -12,8 +11,8 @@
         android:id="@+id/cardView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/cardview_default_radius"
-        android:elevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="@dimen/radius_cardview"
+        android:elevation="@dimen/elevation_cardview"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
         >
@@ -26,8 +25,8 @@
                 android:id="@+id/imagePath"
                 android:layout_width="88dp"
                 android:layout_height="139dp"
-                android:layout_marginStart="34sp"
-                android:layout_marginTop="22sp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="22dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ichnusa"
@@ -36,38 +35,43 @@
 
             <TextView
                 android:id="@+id/title"
+                style="@style/beer_name"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/ichnusa"
                 app:layout_constraintStart_toEndOf="@+id/imagePath"
                 app:layout_constraintTop_toTopOf="@+id/imagePath"
-                style="@style/beer_name"/>
+                />
 
             <TextView
                 android:id="@+id/size"
+                style="@style/beer_text.detailed_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:text="@string/small_size"
                 app:layout_constraintStart_toStartOf="@+id/title"
                 app:layout_constraintTop_toBottomOf="@+id/title"
-                style="@style/beer_text.detailed_view"/>
+                />
 
             <TextView
                 android:id="@+id/shortDescription"
+                style="@style/beer_text"
                 android:layout_height="wrap_content"
                 android:layout_width="160dp"
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="28dp"
+                android:textSize="12sp"
                 android:text="@string/preview_ichnusa"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/size"
                 app:layout_constraintTop_toBottomOf="@+id/size"
-                style="@style/beer_text"/>
+                />
 
             <Button
                 android:id="@+id/button"
+                style="@style/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -76,7 +80,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/shortDescription"
                 app:layout_constraintTop_toBottomOf="@+id/shortDescription"
-                style="@style/button"/>
+                />
 
             <ImageButton
                 android:id="@+id/icon"

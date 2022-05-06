@@ -46,7 +46,7 @@ object Beers {
         true
     )
 
-    private val beerList: List<Beer> = listOf(ichnusa, messina, tennents, heineken, peroni)
+    private val beerList: List<Beer> = listOf(ichnusa, heineken, peroni, messina, tennents)
 
     fun getBeers(): List<Beer> {
         return beerList
