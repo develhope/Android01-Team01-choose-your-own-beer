@@ -2,5 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="elevation_cardview">50dp</dimen>
+    <dimen name="radius_cardview">10dp</dimen>
+    <dimen name="elevation_search">10dp</dimen>
+    <dimen name="default_margin_bot">10dp</dimen>
+    <dimen name="title_size">18sp</dimen>
+
 
 </resources>
