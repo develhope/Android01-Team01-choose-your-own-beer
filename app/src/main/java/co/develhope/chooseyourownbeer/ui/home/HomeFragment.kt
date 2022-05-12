@@ -43,17 +43,16 @@ class HomeFragment : Fragment() {
             layoutManager= LinearLayoutManager(context)
         }
     }
-        private fun OnAdapterClick(action:BeerAction){
-            when (action) {
-    //        is BeerAction.OnStarClick
-              is BeerAction.OnGoToDetailPageClick -> {
-                  val idBeer= action.beer.id
-                  val bundle= bundleOf("BEER_ID" to idBeer)
-                    findNavController().navigate(R.id.action_navigation_home_to_beerDetail, bundle)
-                }
+    private fun OnAdapterClick(action:BeerAction){
+        when (action) {
+            //        is BeerAction.OnStarClick
+            is BeerAction.OnGoToDetailPageClick -> {
+                val idBeer= action.beer.id
+                val bundle= bundleOf("BEER_ID" to idBeer)
+                findNavController().navigate(R.id.action_navigation_home_to_beerDetail, bundle)
             }
         }
-
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
