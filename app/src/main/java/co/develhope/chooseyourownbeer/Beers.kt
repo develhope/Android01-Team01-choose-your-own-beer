@@ -57,6 +57,9 @@ object Beers {
         return beer
     }
 
+    fun getFilteredBeer(text: String): List<Beer> {
+        return beerList.filter { it.title.contains(text) }
+    }
 
     fun switchFavorite(beer: Beer) {
         val newFavourite = beer.copy(favourite = !beer.favourite)
