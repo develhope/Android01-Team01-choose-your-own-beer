@@ -7,7 +7,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import co.develhope.chooseyourownbeer.databinding.ActivityDetailBinding
-import co.develhope.chooseyourownbeer.databinding.ActivityMainBinding
 import co.develhope.chooseyourownbeer.model.Beer
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -34,7 +33,7 @@ class BeerDetailActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_profile
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -43,6 +42,7 @@ class BeerDetailActivity : AppCompatActivity() {
             finish()
             overridePendingTransition(0, 0)
             return@setOnItemSelectedListener false
+
         }
     }
 
