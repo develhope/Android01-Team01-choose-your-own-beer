@@ -22,6 +22,8 @@
         tools:layout="@layout/fragment_search" />
     <action
         android:id="@+id/action_navigation_search_to_beerDetail"
+        app:popUpTo="@id/navigation_home"
+        app:popUpToInclusive="true"
         app:destination="@id/beerDetail"/>
 
     <fragment
