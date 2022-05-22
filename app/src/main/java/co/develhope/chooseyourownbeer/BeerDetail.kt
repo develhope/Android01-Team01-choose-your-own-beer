@@ -26,10 +26,10 @@ class BeerDetail : Fragment() {
 
     }
     fun setupUI(beer: Beer) {
-        binding.imageBeer.setImageResource(beer.imagePath)
-        binding.titleBeer.text = beer.title
-        binding.size.text = beer.size.toString()
-        binding.longDescription.text = beer.fullDescription
+        binding.coloreGial.debug(beer.imagePath)
+        binding.ichnusaNon.text = beer.title
+        binding.cl.text = beer.size.toString()
+        binding.coloreGial.text = beer.fullDescription
     }
     override fun onDestroyView() {
         super.onDestroyView()

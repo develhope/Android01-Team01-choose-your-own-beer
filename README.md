@@ -1,5 +1,4 @@
-# Choose Your own beer
-A collection of beer where you can choose which one should be in your fridge
+https://github.com/develhope/team-1-choose-your-own-beer.git
 
 We will follow [orange](https://www.figma.com/file/yGApBLVEfjfaK7E3NGpNCa/Esercizio?node-id=0%3A1) figma design.
 
