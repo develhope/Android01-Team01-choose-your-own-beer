@@ -1,4 +1,4 @@
-
+package co.develhope.chooseyourownbeer.network
 import com.google.firebase.database.core.Repo
 
 import retrofit2.http.GET
