@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="co.develhope.chooseyourownbeer.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_beerDetail"
+            app:destination="@id/beerDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="co.develhope.chooseyourownbeer.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+    <action
+        android:id="@+id/action_navigation_search_to_beerDetail"
+        app:destination="@id/beerDetail"/>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="co.develhope.chooseyourownbeer.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/beerDetail"
+        android:name="co.develhope.chooseyourownbeer.BeerDetail"
+        android:label="beer_detail"
+        tools:layout="@layout/beer_detail" />
+</navigation>
