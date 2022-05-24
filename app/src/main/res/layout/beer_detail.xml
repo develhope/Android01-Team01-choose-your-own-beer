@@ -1,80 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_marginLeft="25dp"
-    android:layout_marginRight="24dp"
-    android:text="BeerDetail">
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    tools:context=".BeerDetail">
 
-    <!-- Image Ichnusa -->
-    <View
-        android:id="@+id/ichusa_Non"
-        android:layout_width="153dp"
-        android:layout_height="242dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="111dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="31dp"
-        android:background="@drawable/ichnusa"/>
-
-    <!-- Vector -->
+    <ImageView
+        android:id="@+id/imageBeer"
+        android:layout_width="match_parent"
+        android:layout_height="242px"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ichnusa" />
+<!--ImageIchnusa-->
     <ImageButton
-        android:id="@+id/vector"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/emptystar" />
-
-    <!-- Ichnusa non filtrata -->
+        android:id="@+id/favourite_button"
+        android:layout_width="55dp"
+        android:layout_height="37dp"
+        android:background="@color/white"
+        android:contentDescription="@string/favourite_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/emptystar" />
+  <!--emptyStar-->
     <TextView
-        android:id="@+id/ichnusa_non"
-        android:layout_width="239dp"
-        android:layout_height="28dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="321dp"
+        android:id="@+id/titleBeer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:gravity="top"
-        android:lineSpacingExtra="-5sp"
-        android:text="@string/ichnusa"
-        android:textAppearance="@style/beer_name" />
-
-    <!-- 33 cl -->
+        android:textAppearance="@style/beer_name.detailed_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/ichnusa" />
+<!--Icnhusa Title-->
     <TextView
-        android:id="@+id/cl"
-        android:layout_width="43dp"
-        android:layout_height="84dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="303dp"
+        android:id="@+id/size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:textAppearance="@style/beer_text.size_detailed_view"
         android:gravity="top"
-        android:text="@string/small_size"
-        android:textAppearance="@style/beer_text" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/small_size"/>
+    <!-- cl -->
+    <TextView
+        android:id="@+id/longDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/detail_ichnusa"
+        android:textAppearance="@style/beer_text.detailed_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/detail_ichnusa" />
     <!-- Colore giallo dorato luminoso con schiuma fine e persistente.
-        Al naso sprigiona aromi  di fiori d'arancio, caramello e luppolo, accompagnati
-        da un delicato sentore di miele in un complesso di eleganza e piacevolezza
-        che si conferma anche all'assaggio, dove freschezza e rotondità
-        avvolgono una persistenza moderatamente amarognola di grande equilibrio.
-         Ideale per un aperitivo di formaggi e salumi, si accompagna bene anche
-         a pesci al forno saporiti. -->
-    <TextView
-        android:id="@+id/colore_gial"
-        android:layout_width="327dp"
-        android:layout_height="273dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="416dp"
-        android:gravity="top"
-        android:text="@string/detail_ichnusa" />
-    </RelativeLayout >
-
+    Al naso sprigiona aromi di fiori d'arancio, caramello e luppolo, accompagnati da un delicato
+    sentore di miele in un complesso di eleganza e piacevolezza
+    che si conferma anche all'assaggio, dove freschezza e rotondità avvolgono una persistenza
+    moderatamente amarognola di grande equilibrio. Ideale per un aperitivo di formaggi e salumi,
+    si accompagna bene anche a pesci al forno saporiti. -->
+</LinearLayout >
