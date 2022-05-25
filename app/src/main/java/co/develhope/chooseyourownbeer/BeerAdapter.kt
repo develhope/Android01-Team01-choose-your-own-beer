@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.R
 
 
 sealed class BeerAction(){
