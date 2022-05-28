@@ -1,6 +1,7 @@
 package co.develhope.chooseyourownbeer.ui.home
 
 import android.content.Intent
+import co.develhope.chooseyourownbeer.MainActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,8 +47,11 @@ class HomeFragment : Fragment() {
     //        is BeerAction.OnStarClick
               is BeerAction.OnGoToDetailPageClick -> {
                   val idBeer= action.beer.id
-                  val bundle = bundleOf("BEER_ID" to idBeer)
-                  findNavController().navigate(R.id.action_navigation_search_to_beerDetail, bundle)
+                  (activity as MainActivity).goTo(
+                      fragment = BeerDetail.newInstance(idBeer),
+                      addToBackStack = false,
+                      tag = BeerDetail.TAG
+                  )
                 }
             }
         }

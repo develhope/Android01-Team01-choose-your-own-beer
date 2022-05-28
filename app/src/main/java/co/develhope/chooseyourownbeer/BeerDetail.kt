@@ -13,15 +13,16 @@ class BeerDetail : Fragment() {
 
     private var _binding: BeerDetailBinding? = null
     private val binding get() = _binding!!
+    private var beerId: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = BeerDetailBinding.inflate(inflater, container, false)
-        val beerId = arguments?.getLong("BEER_ID") ?: 0
-        val beer = getBeerFromId(beerId)
-        getBeerFromId(beerId)?.let { setupUI(it) }
+        // val beerId = arguments?.getLong("BEER_ID") ?: 0
+        val beer = beerId?.let { getBeerFromId(it) }
+        beer?.let { setupUI(it) }
         return binding.root
 
     }
@@ -36,5 +37,16 @@ class BeerDetail : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        val TAG = BeerDetail::class.java.canonicalName
+            ?: "BeerDetail"
+
+        fun newInstance(beerIdToShow: Int): BeerDetail {
+            return BeerDetail().apply {
+                beerId = beerIdToShow
+            }
+        }
     }
 }
