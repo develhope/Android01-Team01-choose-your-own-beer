@@ -7,6 +7,22 @@
     <dimen name="elevation_search">10dp</dimen>
     <dimen name="default_margin_bot">10dp</dimen>
     <dimen name="title_size">18sp</dimen>
+    <dimen name="layout_image_beer">153dp</dimen>
+    <dimen name="layout_image_beer2">242dp</dimen>
+    <dimen name="image_margin_left">111dp</dimen>
+    <dimen name="Top_layout_image">31dp</dimen>
+    <dimen name="empty_layout_width">32.81px</dimen>
+    <dimen name="empty_layout_height">31.48px</dimen>
+    <dimen name="title_beer_widht">239px</dimen>
+    <dimen name="title_beer_height">28px</dimen>
+    <dimen name="margin_top_title">345px</dimen>
+    <dimen name="size">42px</dimen>
+    <dimen name="size_layout_height">27px</dimen>
+    <dimen name="marginTop_size">381px</dimen>
+    <dimen name="width_text">327px</dimen>
+    <dimen name="height_text">273px</dimen>
+    <dimen name="marginTop_text">440px</dimen>
+    <dimen name="MarginLeft_longDescription">24px</dimen>
 
 
 </resources>
