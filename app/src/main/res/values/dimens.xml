@@ -7,6 +7,20 @@
     <dimen name="elevation_search">10dp</dimen>
     <dimen name="default_margin_bot">10dp</dimen>
     <dimen name="title_size">18sp</dimen>
+    <dimen name="Image_layout_width">88dp</dimen>
+    <dimen name="Image_layout_height">139dp</dimen>
+    <dimen name="marginStart_Image">34dp</dimen>
+    <dimen name="marginTop_layout_Image">22dp</dimen>
+    <dimen name="marginStart_title">14dp</dimen>
+    <dimen name="marginTop_layout">10dp</dimen>
+    <dimen name="textSize_layout">12sp</dimen>
+    <dimen name="layout_width">160dp</dimen>
+    <dimen name="marginTop_shortDescription">9dp</dimen>
+    <dimen name="marginEnd_layout">28dp</dimen>
+    <dimen name="marginTop_button">12dp</dimen>
+    <dimen name="marginBottom_layout">16dp</dimen>
+    <dimen name="imageStart_layout">24dp</dimen>
+    <dimen name="marginBottom_button">19dp</dimen>
 
 
 </resources>
