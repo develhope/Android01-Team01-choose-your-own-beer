@@ -9,10 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.BeerAction
-import co.develhope.chooseyourownbeer.BeerAdapter
-import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.R
+import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 import co.develhope.chooseyourownbeer.model.Beer
 
@@ -76,7 +73,9 @@ class SearchFragment : Fragment() {
 
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
-            //        is BeerAction.OnStarClick
+            is BeerAction.OnStarClick -> {
+                // TODO
+            }
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer = action.beer.id
                 val bundle = bundleOf("BEER_ID" to idBeer)
@@ -84,7 +83,6 @@ class SearchFragment : Fragment() {
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
