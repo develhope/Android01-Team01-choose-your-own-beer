@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer
+package co.develhope.chooseyourownbeer.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import co.develhope.chooseyourownbeer.Beers.getBeerFromId
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.model.Beer
 
-class BeerDetail : Fragment() {
+class BeerDetailFragment : Fragment() {
 
     private var _binding: BeerDetailBinding? = null
     private val binding get() = _binding!!
@@ -18,7 +18,7 @@ class BeerDetail : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = BeerDetailBinding.inflate(inflater, container, false)
         // val beerId = arguments?.getLong("BEER_ID") ?: 0
         val beer = beerId?.let { getBeerFromId(it) }
@@ -40,11 +40,11 @@ class BeerDetail : Fragment() {
     }
 
     companion object {
-        val TAG = BeerDetail::class.java.canonicalName
+        val TAG = BeerDetailFragment::class.java.canonicalName
             ?: "BeerDetail"
 
-        fun newInstance(beerIdToShow: Int): BeerDetail {
-            return BeerDetail().apply {
+        fun newInstance(beerIdToShow: Int): BeerDetailFragment {
+            return BeerDetailFragment().apply {
                 beerId = beerIdToShow
             }
         }

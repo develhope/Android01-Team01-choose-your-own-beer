@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/beerDetail"
-        android:name="co.develhope.chooseyourownbeer.BeerDetail"
+        android:name="co.develhope.chooseyourownbeer.ui.BeerDetailFragment"
         android:label="beer_detail"
         tools:layout="@layout/beer_detail" />
 </navigation>
