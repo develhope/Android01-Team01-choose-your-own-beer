@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_image_beer2">242dp</dimen>
+    <dimen name="image_margin_left">111dp</dimen>
+    <dimen name="Top_layout_image">31dp</dimen>
+    <dimen name="empty_layout_width">32.81px</dimen>
+    <dimen name="empty_layout_height">31.48px</dimen>
+    <dimen name="title_beer_widht">239px</dimen>
+    <dimen name="margin_top_title">345px</dimen>
+    <dimen name="size">42px</dimen>
+    <dimen name="width_text">327px</dimen>
+    <dimen name="marginTop_text">440px</dimen>
+    <dimen name="Image_layout_width">88dp</dimen>
+    <dimen name="Image_layout_height">139dp</dimen>
+    <dimen name="marginTop_layout_Image">22dp</dimen>
+    <dimen name="marginStart_title">14dp</dimen>
+    <dimen name="marginTop_layout">10dp</dimen>
+    <dimen name="marginEnd_layout">28dp</dimen>
+    <dimen name="marginTop_button">12dp</dimen>
+    <dimen name="marginBottom_layout">16dp</dimen>
+    <dimen name="imageStart_layout">24dp</dimen>
+    <dimen name="marginBottom_button">19dp</dimen>
+    <dimen name="marginEnd_button">36dp</dimen>
+</resources>
