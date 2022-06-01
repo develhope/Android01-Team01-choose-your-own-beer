@@ -1,38 +1,40 @@
 package co.develhope.chooseyourownbeer
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
 import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.R
 
-
-sealed class BeerAction(){
+sealed class BeerAction {
     object OnStarClick : BeerAction()
-    data class OnGoToDetailPageClick (val beer: Beer): BeerAction()
+    data class OnGoToDetailPageClick(val beer: Beer) : BeerAction()
 }
 
-class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Unit) : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
+class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (BeerAction) -> Unit) :
+    RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
+
+    private lateinit var binding: BeerLayoutBinding
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
-        val beerView =
-            LayoutInflater.from(parent.context).inflate(R.layout.beer_layout, parent, false)
-        return BeerViewHolder(beerView)
+        binding = BeerLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BeerViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
-        holder.beerImage.setImageResource(beerList[position].imagePath)
-        holder.beerTitle.text = beerList[position].title
-        holder.beerSize.text = beerList[position].size.toString()
-        holder.beerDesc.text = beerList[position].shortDescription
-        holder.icon.setOnClickListener{
-            onBeerClick(BeerAction.OnStarClick)
-        }
-        holder.button.setOnClickListener {
-            onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
+        with(beerList[position]) {
+            binding.imagePath.setImageResource(imagePath)
+            binding.title.text = title
+            binding.size.text = size.toString()
+            binding.shortDescription.text = shortDescription
+
+
+            binding.icon.setOnClickListener {
+                onBeerClick(BeerAction.OnStarClick)
+            }
+            binding.button.setOnClickListener {
+                onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
+            }
         }
     }
 
@@ -40,8 +42,8 @@ class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Uni
         return beerList.size
     }
 
-    inner class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val beerImage: ImageView
+    inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+/*
         val beerTitle: TextView
         val beerSize: TextView
         val beerDesc: TextView
@@ -55,6 +57,12 @@ class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Uni
             beerDesc = view.findViewById(R.id.shortDescription)
             icon = view.findViewById(R.id.icon)
             button = view.findViewById(R.id.button)
-        }
+          binding.imagePath.setImageResource(beerList[position].imagePath)
+            binding.title.text = beerList[position].title
+            binding.size.text = beerList[position].size.toString()
+            binding.shortDescription.text = beerList[position].shortDescription
+
+       }
+ */
     }
 }
