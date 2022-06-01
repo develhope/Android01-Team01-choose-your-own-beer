@@ -28,7 +28,7 @@
     <string name="favourite_button">preferito</string>
     <string name="settings_text">Impostazioni</string>
     <string name="profile_name_text">Nome Cognome</string>
-    <string name="app_version_text">App version = 1.0.0</string>
+    <string name="app_version_text">App version 1.0.0</string>
     <string name="email_input_text">Inserisci la tua email</string>
     <string name="contact_btn_text">Contattaci</string>
     <string name="logout_btn_text">Logout</string>
