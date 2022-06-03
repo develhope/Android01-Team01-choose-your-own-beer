@@ -11,7 +11,7 @@ import co.develhope.chooseyourownbeer.BeerAction
 import co.develhope.chooseyourownbeer.BeerAdapter
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
-import co.develhope.chooseyourownbeer.ui.BeerDetailActivity
+import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 
 class HomeFragment : Fragment() {

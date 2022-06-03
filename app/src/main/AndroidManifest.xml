@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChooseYourOwnBeer">
         <activity
-            android:name=".ui.BeerDetailActivity"
+            android:name=".ui.detail.BeerDetailActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

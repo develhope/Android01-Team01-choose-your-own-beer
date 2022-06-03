@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer.ui
+package co.develhope.chooseyourownbeer.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
