@@ -1,33 +1,37 @@
-package co.develhope.chooseyourownbeer.ui
+package co.develhope.chooseyourownbeer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import co.develhope.chooseyourownbeer.Beers.getBeerFromId
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import kotlin.properties.Delegates
 
-class BeerDetailFragment : Fragment() {
+class BeerDetail : Fragment() {
 
     private var _binding: BeerDetailBinding? = null
     private val binding get() = _binding!!
-    private var beerId: Int? = null
+
+    companion object {
+        const val BEERID = "BEER_ID"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = BeerDetailBinding.inflate(inflater, container, false)
-        val beer = beerId?.let { getBeerFromId(it) }
-        setupUI(beer as Beer)
+        val beerId = arguments?.getLong(BEERID) ?: 0
+        val beer = getBeerFromId(beerId)
+        getBeerFromId(beerId)?.let { setupUI(it) }
         return binding.root
 
     }
 
-    private fun setupUI(beer: Beer) {
+    fun setupUI(beer: Beer) {
         binding.imageBeer.setImageResource(beer.imagePath)
         binding.titleBeer.text = beer.title
         binding.size.text = beer.size.toString()
@@ -37,16 +41,5 @@ class BeerDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        val TAG = BeerDetailFragment::class.java.canonicalName
-            ?: "BeerDetail"
-
-        fun newInstance(beerIdToShow: Int): BeerDetailFragment {
-            return BeerDetailFragment().apply {
-                beerId = beerIdToShow
-            }
-        }
     }
 }
