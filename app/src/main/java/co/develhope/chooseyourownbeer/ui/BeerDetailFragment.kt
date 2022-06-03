@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import co.develhope.chooseyourownbeer.Beers.getBeerFromId
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.model.Beer
@@ -20,9 +21,8 @@ class BeerDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = BeerDetailBinding.inflate(inflater, container, false)
-        // val beerId = arguments?.getLong("BEER_ID") ?: 0
         val beer = beerId?.let { getBeerFromId(it) }
-        beer?.let { setupUI(it) }
+        setupUI(beer as Beer)
         return binding.root
 
     }
