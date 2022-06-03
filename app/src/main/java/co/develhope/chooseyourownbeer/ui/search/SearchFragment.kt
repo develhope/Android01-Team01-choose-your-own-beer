@@ -58,9 +58,9 @@ class SearchFragment : Fragment() {
 
     private fun printCount(count: Int) {
         if (count != 0) {
-            binding.textResult.text = "$count Risultati"
+            binding.textResult.text = getString(R.string.search_result_text, count.toString())
         } else {
-            binding.textResult.text = "Nessun elemento trovato"
+            binding.textResult.text = getString(R.string.search_result_nothing_text)
         }
     }
 

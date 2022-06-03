@@ -33,4 +33,6 @@
     <string name="logout_btn_text">Logout</string>
     <string name="result_text">2 Result</string>
     <string name="beer_detail_error">Error retrieving beer details.</string>
+    <string name="search_result_text">%s Results</string>
+    <string name="search_result_nothing_text">No items found</string>
 </resources>
