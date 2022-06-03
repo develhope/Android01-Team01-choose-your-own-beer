@@ -5,5 +5,5 @@ import retrofit2.http.Path
 
 interface PunkService {
     @GET("{beers}")
-    suspend fun listRepos(@Path("beers") user: String?): BeersResult
+    suspend fun listRepos(@Path("/beers") beers: String): BeersResult
 }
