@@ -10,17 +10,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.databinding.ActivityMainBinding
 import co.develhope.chooseyourownbeer.model.Beer
 import co.develhope.chooseyourownbeer.model.MainViewModel
 import co.develhope.chooseyourownbeer.network.BeersResult
-import co.develhope.chooseyourownbeer.network.PunkService
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         //Call method for beer repo
         retrievePunkRepos()
@@ -53,25 +48,31 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(navView, navController)
         navView.setupWithNavController(navController)
     }
-    fun retrievePunkRepos(){
-        lifecycleScope.launch{
-            try{
-                //@TODO showRepos(repos)
-            } catch (e: Exception){
+
+    fun retrievePunkRepos() {
+        lifecycleScope.launch {
+            try {
+            } catch (e: Exception) {
                 Log.e("MainActivity", "Error retrieving repos: $e")
-                Snackbar.make(findViewById(R.id.container), "Error retrieving repos",
-                    Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Retry"){ retrievePunkRepos() }.show()
+                Snackbar.make(
+                    findViewById(R.id.container), "Error retrieving repos",
+                    Snackbar.LENGTH_INDEFINITE
+                )
+                    .setAction("Retry") { retrievePunkRepos() }.show()
             }
         }
     }
-    //@TODO create function showRepos(repos)
-    fun showRepos(repoResults: BeersResult){
+
+    fun showRepos(repoResults: List<Beer>) {
         Log.d("MainActivity", "Repos received!")
         val list = findViewById<RecyclerView>(R.id.repo_list_beer)
         list.visibility = View.VISIBLE
-        //val adapter = BeerAdapter(repoResults)
-        //list.adapter = adapter
+        val adapter = BeerAdapter(
+            repoResults,
+        ) { action -> onAdapterClick(action) }
+        list.adapter = adapter
     }
 
-}
+    private fun onAdapterClick(action: BeerAction) {
+        }
+    }
