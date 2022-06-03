@@ -22,20 +22,7 @@ class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (Be
     }
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
-        with(beerList[position]) {
-            binding.imagePath.setImageResource(imagePath)
-            binding.title.text = title
-            binding.size.text = size.toString()
-            binding.shortDescription.text = shortDescription
-
-
-            binding.icon.setOnClickListener {
-                onBeerClick(BeerAction.OnStarClick)
-            }
-            binding.button.setOnClickListener {
-                onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
-            }
-        }
+        holder.bind(beerList[position])
     }
 
     override fun getItemCount(): Int {
@@ -43,26 +30,19 @@ class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (Be
     }
 
     inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-/*
-        val beerTitle: TextView
-        val beerSize: TextView
-        val beerDesc: TextView
-        val icon: ImageView
-        val button: Button
-
-        init {
-            beerImage = view.findViewById(R.id.imagePath)
-            beerTitle = view.findViewById(R.id.title)
-            beerSize = view.findViewById(R.id.size)
-            beerDesc = view.findViewById(R.id.shortDescription)
-            icon = view.findViewById(R.id.icon)
-            button = view.findViewById(R.id.button)
-          binding.imagePath.setImageResource(beerList[position].imagePath)
-            binding.title.text = beerList[position].title
-            binding.size.text = beerList[position].size.toString()
-            binding.shortDescription.text = beerList[position].shortDescription
-
-       }
- */
+        fun bind(beer: Beer) {
+            with(beer) {
+                binding.imagePath.setImageResource(imagePath)
+                binding.title.text = title
+                binding.size.text = size.toString()
+                binding.shortDescription.text = shortDescription
+                binding.icon.setOnClickListener {
+                    onBeerClick(BeerAction.OnStarClick)
+                }
+                binding.button.setOnClickListener {
+                    onBeerClick(BeerAction.OnGoToDetailPageClick(beer))
+                }
+            }
+        }
     }
 }
