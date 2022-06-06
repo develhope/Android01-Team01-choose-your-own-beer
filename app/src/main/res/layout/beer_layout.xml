@@ -22,14 +22,15 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageIchnusa"
-                android:layout_width="@dimen/layout_Imagebeer_width"
-                android:layout_height="@dimen/layout_imageBeer_height"
-                android:layout_marginStart="@dimen/layout_imageBeer_Start"
-                android:layout_marginTop="@dimen/layout_imageBeer_top"
+                android:id="@+id/ichnusaImage"
+                android:layout_width="88dp"
+                android:layout_height="139dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="22dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ichnusa"/>
+                app:srcCompat="@drawable/ichnusa"
+                 />
 
 
             <TextView
@@ -39,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
                 android:text="@string/ichnusa"
-                app:layout_constraintStart_toEndOf="@+id/imageIchnusa"
-                app:layout_constraintTop_toTopOf="@+id/imageIchnusa"
+                app:layout_constraintStart_toEndOf="@+id/ichnusaImage"
+                app:layout_constraintTop_toTopOf="@+id/ichnusaImage"
                 />
 
             <TextView
@@ -58,13 +59,13 @@
                 android:id="@+id/shortDescription"
                 style="@style/beer_text"
                 android:layout_height="wrap_content"
-                android:layout_width="@dimen/layout_default_widht"
-                android:layout_marginTop="@dimen/layout_default_Top"
-                android:layout_marginEnd="@dimen/marginEnd_default"
-                android:textSize="@dimen/textSize_default"
+                android:layout_width="160dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="28dp"
+                android:textSize="12sp"
                 android:text="@string/preview_ichnusa"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageIchnusa"
+                app:layout_constraintStart_toStartOf="@+id/size"
                 app:layout_constraintTop_toBottomOf="@+id/size"
                 />
 
