@@ -1,19 +1,17 @@
 package co.develhope.chooseyourownbeer.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.BeerAction
 import co.develhope.chooseyourownbeer.BeerAdapter
-import co.develhope.chooseyourownbeer.BeerDetail.Companion.BEERID
 import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
+import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 
 class HomeFragment : Fragment() {
@@ -30,8 +28,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,18 +37,24 @@ class HomeFragment : Fragment() {
         val beerList = Beers.getBeers()
 
         binding.beerList.apply {
-            adapter = BeerAdapter(beerList) { action -> OnAdapterClick(action) }
+            adapter = BeerAdapter(beerList) { action -> onAdapterClick(action) }
             layoutManager = LinearLayoutManager(context)
         }
     }
 
-    private fun OnAdapterClick(action: BeerAction) {
+    private fun onAdapterClick(action: BeerAction) {
         when (action) {
-            //        is BeerAction.OnStarClick
+            is BeerAction.OnStarClick -> {
+                // TODO
+            }
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer = action.beer.id
-                val bundle = bundleOf(BEERID to idBeer)
-                findNavController().navigate(R.id.action_navigation_home_to_beerDetail, bundle)
+                val intent = Intent(context, BeerDetailActivity::class.java)
+                intent.putExtra("BEER_ID", idBeer)
+                startActivity(intent)
+            }
+            else -> {
+                return
             }
         }
     }
