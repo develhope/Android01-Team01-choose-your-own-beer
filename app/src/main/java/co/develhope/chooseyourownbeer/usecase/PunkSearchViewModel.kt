@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer.model
+package co.develhope.chooseyourownbeer.usecase
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,12 +9,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class MainViewModel (private val punkProvider: PunkProvider): ViewModel() {
+class PunkSearchViewModel (private val punkProvider: PunkProvider): ViewModel() {
 
     private var _repos = MutableLiveData<List<PunkRepository>>()
     val repos: LiveData<List<PunkRepository>>
-        get() = _repos
+       get() = _repos
 
     private var _error = MutableLiveData<String>()
     val error: LiveData<String>

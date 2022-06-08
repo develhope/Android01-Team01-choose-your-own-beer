@@ -8,14 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.usecase.model.PunkRepository
 
 
 sealed class BeerAction(){
     object OnStarClick : BeerAction()
-    data class OnGoToDetailPageClick (val beer: Beer): BeerAction()
+    data class OnGoToDetailPageClick (val beer: Boolean): BeerAction()
 }
 
-class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Unit) : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
+class BeerAdapter(var beerList: List<PunkRepository>, val onBeerClick: (BeerAction) -> Unit) : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val beerView =
             LayoutInflater.from(parent.context).inflate(R.layout.beer_layout, parent, false)
@@ -31,7 +32,7 @@ class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Uni
             onBeerClick(BeerAction.OnStarClick)
         }
         holder.button.setOnClickListener {
-            onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
+            onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position].favourite))
         }
     }
 

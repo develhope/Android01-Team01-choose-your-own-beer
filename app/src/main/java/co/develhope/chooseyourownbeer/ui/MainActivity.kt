@@ -1,27 +1,28 @@
-package co.develhope.chooseyourownbeer
+package co.develhope.chooseyourownbeer.ui
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.chooseyourownbeer.BeerAction
+import co.develhope.chooseyourownbeer.BeerAdapter
+import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.ActivityMainBinding
-import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.model.MainViewModel
-import co.develhope.chooseyourownbeer.network.BeersResult
+import co.develhope.chooseyourownbeer.usecase.PunkSearchViewModel
+import co.develhope.chooseyourownbeer.usecase.model.PunkRepository
+import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: PunkSearchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +30,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Call method for beer repo
-        retrievePunkRepos()
+        viewModel = (application as MyApplication).mainViewModelFactory.create(PunkSearchViewModel::class.java)
+
+        observerRepos()
+        viewModel.retrieveRepos("beers")
 
         //Hide actionBar
         supportActionBar?.hide()
@@ -49,22 +52,24 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    fun retrievePunkRepos() {
-        lifecycleScope.launch {
-            try {
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error retrieving repos: $e")
-                Snackbar.make(
-                    findViewById(R.id.container), "Error retrieving repos",
-                    Snackbar.LENGTH_INDEFINITE
-                )
-                    .setAction("Retry") { retrievePunkRepos() }.show()
-            }
+
+    private fun observerRepos(){
+        viewModel.repos.observe(this) {
+            showRepos(it)
+        }
+        viewModel.error.observe(this) {
+            Snackbar.make(
+                findViewById(R.id.container),
+                "Error:$it",
+                Snackbar.LENGTH_INDEFINITE
+            ).setAction("Retry") {
+                viewModel.retrieveRepos("beers")
+            }.show()
         }
     }
 
-    fun showRepos(repoResults: List<Beer>) {
-        Log.d("MainActivity", "Repos received!")
+    fun showRepos(repoResults: List<PunkRepository>){
+        Log.d("PunkSearchScreen", "list of repos received, size: ${repoResults.size}")
         val list = findViewById<RecyclerView>(R.id.repo_list_beer)
         list.visibility = View.VISIBLE
         val adapter = BeerAdapter(
@@ -72,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         ) { action -> onAdapterClick(action) }
         list.adapter = adapter
     }
-
     private fun onAdapterClick(action: BeerAction) {
-        }
+    }
     }

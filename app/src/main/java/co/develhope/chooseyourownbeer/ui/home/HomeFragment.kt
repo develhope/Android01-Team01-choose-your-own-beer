@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.BeerAction
 import co.develhope.chooseyourownbeer.BeerAdapter
-import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.placeholder.Beers
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
