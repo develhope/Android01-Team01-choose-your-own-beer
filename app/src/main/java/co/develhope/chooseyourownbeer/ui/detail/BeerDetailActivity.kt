@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.model.Beer
 
@@ -41,5 +42,10 @@ class BeerDetailActivity : AppCompatActivity() {
         binding.titleBeer.text = beer.title
         binding.size.text = beer.size.toString()
         binding.longDescription.text = beer.fullDescription
+        if (beer.favourite) {
+            binding.favouriteButton.setImageResource(R.drawable.fullstar)
+        } else {
+            binding.favouriteButton.setImageResource(R.drawable.emptystar)
+        }
     }
 }
