@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.BeerAction
+import co.develhope.chooseyourownbeer.ui.BeerAdapter
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 class SearchFragment : Fragment() {

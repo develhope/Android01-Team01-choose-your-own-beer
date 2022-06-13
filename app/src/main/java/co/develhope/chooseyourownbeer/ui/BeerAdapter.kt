@@ -1,8 +1,9 @@
-package co.develhope.chooseyourownbeer
+package co.develhope.chooseyourownbeer.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
 import co.develhope.chooseyourownbeer.model.Beer
 
