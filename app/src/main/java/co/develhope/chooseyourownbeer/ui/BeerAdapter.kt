@@ -7,7 +7,7 @@ import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
 import co.develhope.chooseyourownbeer.model.Beer
 
 sealed class BeerAction {
-    object OnStarClick : BeerAction()
+    data class OnStarClick(val beer: Beer) : BeerAction()
     data class OnGoToDetailPageClick(val beer: Beer) : BeerAction()
 }
 
@@ -36,8 +36,13 @@ class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (Be
                 binding.title.text = title
                 binding.size.text = size.toString()
                 binding.shortDescription.text = shortDescription
+                if (beer.favourite) {
+                    binding.icon.setImageResource(R.drawable.fullstar)
+                } else {
+                    binding.icon.setImageResource(R.drawable.emptystar)
+                }
                 binding.icon.setOnClickListener {
-                    onBeerClick(BeerAction.OnStarClick)
+                    onBeerClick(BeerAction.OnStarClick(beer))
                 }
                 binding.button.setOnClickListener {
                     onBeerClick(BeerAction.OnGoToDetailPageClick(beer))

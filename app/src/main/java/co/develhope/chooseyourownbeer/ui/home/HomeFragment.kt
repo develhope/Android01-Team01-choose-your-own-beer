@@ -2,6 +2,7 @@ package co.develhope.chooseyourownbeer.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,10 @@ import co.develhope.chooseyourownbeer.BeerAction
 import co.develhope.chooseyourownbeer.BeerAdapter
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
+import co.develhope.chooseyourownbeer.model.Beer
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
+import java.util.*
+import kotlin.Comparator
 
 
 class HomeFragment : Fragment() {
@@ -34,18 +38,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val beerList = Beers.getBeers()
-
-        binding.beerList.apply {
-            adapter = BeerAdapter(beerList) { action -> onAdapterClick(action) }
-            layoutManager = LinearLayoutManager(context)
-        }
+        refreshList()
     }
 
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
             is BeerAction.OnStarClick -> {
-                // TODO
+                Beers.switchFavorite(action.beer)
+                refreshList()
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer = action.beer.id
@@ -56,6 +56,15 @@ class HomeFragment : Fragment() {
             else -> {
                 return
             }
+        }
+    }
+
+    private fun refreshList() {
+        val beerList = Beers.getBeers()
+        val sortedList = beerList.sortedWith(compareBy<Beer> { it.favourite }.reversed().thenBy { it.id })
+        binding.beerList.apply {
+            adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
+            layoutManager = LinearLayoutManager(context)
         }
     }
 
