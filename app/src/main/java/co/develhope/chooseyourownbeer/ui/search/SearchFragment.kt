@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.BeerAction
+import co.develhope.chooseyourownbeer.ui.BeerAdapter
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 class SearchFragment : Fragment() {
@@ -66,7 +68,9 @@ class SearchFragment : Fragment() {
 
     private fun showListFiltered() {
         binding.beerListSearch.apply {
-            adapter = BeerAdapter(listFiltered) { action -> onAdapterClick(action) }
+            val listFiltered = Beers.getFilteredBeer(binding.searchView.query.toString())
+            val sortedList = listFiltered.sortedWith(compareBy<Beer> { it.favourite }.reversed().thenBy { it.id })
+            adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
             layoutManager = LinearLayoutManager(context)
         }
     }
@@ -74,7 +78,8 @@ class SearchFragment : Fragment() {
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
             is BeerAction.OnStarClick -> {
-                // TODO
+                Beers.switchFavorite(action.beer)
+                showListFiltered()
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer = action.beer.id
