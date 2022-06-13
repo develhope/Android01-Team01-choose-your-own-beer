@@ -1,60 +1,48 @@
 package co.develhope.chooseyourownbeer
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
 import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.R
 
-
-sealed class BeerAction(){
+sealed class BeerAction {
     object OnStarClick : BeerAction()
-    data class OnGoToDetailPageClick (val beer: Beer): BeerAction()
+    data class OnGoToDetailPageClick(val beer: Beer) : BeerAction()
 }
 
-class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Unit) : RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
+class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (BeerAction) -> Unit) :
+    RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
+
+    private lateinit var binding: BeerLayoutBinding
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
-        val beerView =
-            LayoutInflater.from(parent.context).inflate(R.layout.beer_layout, parent, false)
-        return BeerViewHolder(beerView)
+        binding = BeerLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BeerViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
-        holder.beerImage.setImageResource(beerList[position].imagePath)
-        holder.beerTitle.text = beerList[position].title
-        holder.beerSize.text = beerList[position].size.toString()
-        holder.beerDesc.text = beerList[position].shortDescription
-        holder.icon.setOnClickListener{
-            onBeerClick(BeerAction.OnStarClick)
-        }
-        holder.button.setOnClickListener {
-            onBeerClick(BeerAction.OnGoToDetailPageClick(beerList[position]))
-        }
+        holder.bind(beerList[position])
     }
 
     override fun getItemCount(): Int {
         return beerList.size
     }
 
-    inner class BeerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val beerImage: ImageView
-        val beerTitle: TextView
-        val beerSize: TextView
-        val beerDesc: TextView
-        val icon: ImageView
-        val button: Button
-
-        init {
-            beerImage = view.findViewById(R.id.imagePath)
-            beerTitle = view.findViewById(R.id.title)
-            beerSize = view.findViewById(R.id.size)
-            beerDesc = view.findViewById(R.id.shortDescription)
-            icon = view.findViewById(R.id.icon)
-            button = view.findViewById(R.id.button)
+    inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(beer: Beer) {
+            with(beer) {
+                binding.imagePath.setImageResource(imagePath)
+                binding.title.text = title
+                binding.size.text = size.toString()
+                binding.shortDescription.text = shortDescription
+                binding.icon.setOnClickListener {
+                    onBeerClick(BeerAction.OnStarClick)
+                }
+                binding.button.setOnClickListener {
+                    onBeerClick(BeerAction.OnGoToDetailPageClick(beer))
+                }
+            }
         }
     }
 }
