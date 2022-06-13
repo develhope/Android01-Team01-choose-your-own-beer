@@ -9,5 +9,18 @@
     <dimen name="title_size">18sp</dimen>
     <dimen name="marginEnd_button">36dp</dimen>
 
+    <!-- Beer Detail page dimensions. -->
+    <dimen name="detail_image_width">153dp</dimen>
+    <dimen name="detail_image_height">242dp</dimen>
+    <dimen name="detail_image_margin_top">55dp</dimen>
+    <dimen name="detail_star_width">32dp</dimen>
+    <dimen name="detail_star_height">32dp</dimen>
+    <dimen name="detail_title_margin_top">31dp</dimen>
+    <dimen name="detail_size_margin_top">8dp</dimen>
+    <dimen name="detail_desc_margin_top">32dp</dimen>
+    <dimen name="detail_desc_margin_right">24dp</dimen>
+    <dimen name="detail_error_margin_top">24dp</dimen>
+    <dimen name="detail_layout_padding_horizontal">25dp</dimen>
+
 
 </resources>

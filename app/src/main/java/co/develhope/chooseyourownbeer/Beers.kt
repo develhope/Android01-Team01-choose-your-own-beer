@@ -52,7 +52,7 @@ object Beers {
         return beerList
     }
 
-    fun getBeerFromId(idBeer: Long): Beer? {
+    fun getBeerFromId(idBeer: Int): Beer? {
         val beer = beerList.find { it.id == idBeer }
         return beer
     }

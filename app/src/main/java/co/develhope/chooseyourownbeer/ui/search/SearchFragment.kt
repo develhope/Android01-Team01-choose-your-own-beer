@@ -1,17 +1,17 @@
 package co.develhope.chooseyourownbeer.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 class SearchFragment : Fragment() {
 
@@ -58,9 +58,9 @@ class SearchFragment : Fragment() {
 
     private fun printCount(count: Int) {
         if (count != 0) {
-            binding.textResult.text = "$count Risultati"
+            binding.textResult.text = getString(R.string.search_result_text, count.toString())
         } else {
-            binding.textResult.text = "Nessun elemento trovato"
+            binding.textResult.text = getString(R.string.search_result_nothing_text)
         }
     }
 
@@ -78,8 +78,12 @@ class SearchFragment : Fragment() {
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val idBeer = action.beer.id
-                val bundle = bundleOf("BEER_ID" to idBeer)
-                findNavController().navigate(R.id.action_navigation_search_to_beerDetail, bundle)
+                val intent = Intent(context, BeerDetailActivity::class.java)
+                intent.putExtra("BEER_ID", idBeer)
+                startActivity(intent)
+            }
+            else -> {
+                return
             }
         }
     }
