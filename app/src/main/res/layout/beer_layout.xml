@@ -22,73 +22,71 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imagePath"
-                android:layout_width="88dp"
-                android:layout_height="139dp"
-                android:layout_marginStart="34dp"
-                android:layout_marginTop="22dp"
+                android:id="@+id/iconBeer"
+                android:layout_width="@dimen/width_fix_icon"
+                android:layout_height="@dimen/height_fix_icon"
+                android:layout_marginStart="@dimen/margin_start_default"
+                android:layout_marginTop="@dimen/marginTop_default"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ichnusa"
-                 />
+                app:srcCompat="@drawable/ichnusa" />
 
 
             <TextView
                 android:id="@+id/title"
                 style="@style/beer_name"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
+                android:layout_marginStart="@dimen/margin_start"
                 android:text="@string/ichnusa"
-                app:layout_constraintStart_toEndOf="@+id/imagePath"
-                app:layout_constraintTop_toTopOf="@+id/imagePath"
-                />
+                app:layout_constraintStart_toEndOf="@+id/iconBeer"
+                app:layout_constraintTop_toTopOf="@+id/iconBeer" />
 
             <TextView
                 android:id="@+id/size"
                 style="@style/beer_text.detailed_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/margin_start"
                 android:text="@string/small_size"
-                app:layout_constraintStart_toStartOf="@+id/title"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                />
+                android:layout_marginTop="@dimen/margin_top_size"
+                android:layout_marginEnd="@dimen/title_size"
+                app:layout_constraintStart_toEndOf="@id/iconBeer"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <TextView
                 android:id="@+id/shortDescription"
                 style="@style/beer_text"
+                android:layout_width="@dimen/default_width"
+                android:layout_marginStart="@dimen/margin_start"
                 android:layout_height="wrap_content"
-                android:layout_width="160dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="28dp"
-                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_end_default"
+                android:layout_marginEnd="@dimen/margintop_default"
                 android:text="@string/preview_ichnusa"
+                android:textSize="@dimen/text_size"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/size"
-                app:layout_constraintTop_toBottomOf="@+id/size"
-                />
+                app:layout_constraintStart_toEndOf="@id/iconBeer"
+                app:layout_constraintTop_toBottomOf="@+id/size" />
 
             <Button
                 android:id="@+id/button"
                 style="@style/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="@dimen/margin_top"
+                android:layout_marginBottom="@dimen/margin_bottom"
                 android:text="@string/go_to_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/shortDescription"
-                app:layout_constraintTop_toBottomOf="@+id/shortDescription"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/shortDescription" />
 
             <ImageButton
                 android:id="@+id/icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="19dp"
+                android:layout_marginStart="@dimen/empty_margin_start"
+                android:layout_marginBottom="@dimen/margin_bottom"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/emptystar" />

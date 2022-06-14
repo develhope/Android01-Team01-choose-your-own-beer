@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.R
 
 
 sealed class BeerAction(){
@@ -49,7 +48,7 @@ class BeerAdapter(var beerList: List<Beer>, val onBeerClick: (BeerAction) -> Uni
         val button: Button
 
         init {
-            beerImage = view.findViewById(R.id.imagePath)
+            beerImage = view.findViewById(R.id.iconBeer)
             beerTitle = view.findViewById(R.id.title)
             beerSize = view.findViewById(R.id.size)
             beerDesc = view.findViewById(R.id.shortDescription)
