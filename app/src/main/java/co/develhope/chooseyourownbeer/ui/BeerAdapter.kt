@@ -24,7 +24,7 @@ class BeerAdapter(var beerList: List<PunkRepository>, val onBeerClick: (BeerActi
     }
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
-        holder.beerImage.setImageResource(beerList[position].imagePath)
+        //holder.beerImage.setImageResource(beerList[position].imagePath)
         holder.beerTitle.text = beerList[position].title
         holder.beerSize.text = beerList[position].size.toString()
         holder.beerDesc.text = beerList[position].shortDescription

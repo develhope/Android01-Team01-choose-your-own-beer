@@ -9,7 +9,7 @@ import java.lang.IllegalArgumentException
 //Add extend view model
 
 class MyViewFactory(private val punkProvider: PunkProvider) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PunkSearchViewModel::class.java)){
             return PunkSearchViewModel(punkProvider) as T
         }

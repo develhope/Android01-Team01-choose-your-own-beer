@@ -1,7 +1,7 @@
 package co.develhope.chooseyourownbeer.model
 
-data class Beer(val id: Long,
-                var imagePath: Int,
+data class Beer(val id: Int,
+                var imagePath: String?,
                 var title: String,
                 var size: Double,
                 val shortDescription: String,

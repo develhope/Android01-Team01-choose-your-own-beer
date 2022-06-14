@@ -65,5 +65,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/detail_ichnusa"/>
 
+    <TextView
+        android:id="@+id/beerError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/detail_error_margin_top"
+        android:text="@string/beer_detail_error"
+        android:textColor="@color/red"
+        android:visibility="gone" />
+
+
 
 </LinearLayout >

@@ -27,7 +27,7 @@ data class RepoDto(val abv: Double,
                    val tagline: String,
                    val target_fg: Int,
                    val target_og: Double,
-                   val volume: Volume
+                   val volume: Volume,
                    var favorite : Boolean
 )
 fun RepoDto.toPunkRepository() = PunkRepository(this.id,this.image_url,this.name, this.volume, this.description, this.description, this.favorite)
