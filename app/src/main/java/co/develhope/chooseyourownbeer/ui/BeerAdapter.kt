@@ -6,13 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.usecase.model.PunkRepository
 
 sealed class BeerAction {
     data class OnStarClick(val beer: Beer) : BeerAction()
     data class OnGoToDetailPageClick(val beer: Beer) : BeerAction()
 }
 
-class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (BeerAction) -> Unit) :
+class BeerAdapter(private val beerList: List<PunkRepository>, private val onBeerClick: (BeerAction) -> Unit) :
     RecyclerView.Adapter<BeerAdapter.BeerViewHolder>() {
 
     private lateinit var binding: BeerLayoutBinding

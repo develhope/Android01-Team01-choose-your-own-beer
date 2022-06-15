@@ -10,8 +10,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.RecyclerView
-import co.develhope.chooseyourownbeer.BeerAction
-import co.develhope.chooseyourownbeer.BeerAdapter
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.ActivityMainBinding
 import co.develhope.chooseyourownbeer.usecase.PunkSearchViewModel
