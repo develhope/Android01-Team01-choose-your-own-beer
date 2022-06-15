@@ -1,3 +1,5 @@
 package co.develhope.chooseyourownbeer.network.dto
 
-class BeersResult : ArrayList<BeersDto>()
+data class Fermentation(
+    val temp: Temp
+)

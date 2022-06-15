@@ -9,7 +9,7 @@
     <dimen name="title_size">18sp</dimen>
     <dimen name="marginEnd_button">36dp</dimen>
 
-    <!-- Beer Detail page dimensions. -->
+    <!-- BeerUi Detail page dimensions. -->
     <dimen name="detail_image_width">153dp</dimen>
     <dimen name="detail_image_height">242dp</dimen>
     <dimen name="detail_image_margin_top">55dp</dimen>

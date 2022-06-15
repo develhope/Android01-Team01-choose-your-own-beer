@@ -1,6 +1,6 @@
-package co.develhope.chooseyourownbeer.model
+package co.develhope.chooseyourownbeer.ui.model
 
-data class Beer(
+data class BeerUi(
     val id: Int,
     var imagePath: Int,
     var title: String,

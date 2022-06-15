@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer.network.jsonSource
+package co.develhope.chooseyourownbeer.network.dto
 
 data class TempX(
     val unit: String,

@@ -7,7 +7,7 @@ import android.view.View
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
-import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.model.BeerUi
 
 class BeerDetailActivity : AppCompatActivity() {
 
@@ -18,9 +18,13 @@ class BeerDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val beerId: Int = intent.getIntExtra("BEER_ID", 0)
-        val beer = beerId.let { Beers.getBeerFromId(it) } ?: {binding.beerError.visibility = View.VISIBLE}
-        setupUI(beer as Beer)
+
+        val beer = beerId.let {
+            Beers.getBeerFromId(it) } ?: {
+            binding.beerError.visibility = View.VISIBLE}
+        setupUI(beer as BeerUi)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
@@ -37,12 +41,12 @@ class BeerDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupUI(beer: Beer) {
-        binding.imageBeer.setImageResource(beer.imagePath)
-        binding.titleBeer.text = beer.title
-        binding.size.text = beer.size.toString()
-        binding.longDescription.text = beer.fullDescription
-        if (beer.favourite) {
+    private fun setupUI(beerUi: BeerUi) {
+        binding.imageBeer.setImageResource(beerUi.imagePath)
+        binding.titleBeer.text = beerUi.title
+        binding.size.text = beerUi.size.toString()
+        binding.longDescription.text = beerUi.fullDescription
+        if (beerUi.favourite) {
             binding.favouriteButton.setImageResource(R.drawable.fullstar)
         } else {
             binding.favouriteButton.setImageResource(R.drawable.emptystar)
