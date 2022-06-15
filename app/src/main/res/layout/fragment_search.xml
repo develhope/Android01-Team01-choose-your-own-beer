@@ -1,54 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchFragment"
     android:background="@color/light_orange"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.search.SearchFragment">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="@string/search"
-        android:iconifiedByDefault="false"
-        app:searchIcon="@drawable/findorange"
         android:layout_marginStart="32dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="31dp"
         android:background="@drawable/shapeview_background"
-        android:queryBackground="@color/white"
         android:elevation="@dimen/elevation_search"
+        android:iconifiedByDefault="false"
         android:layoutDirection="rtl"
+        android:queryBackground="@color/white"
+        android:queryHint="@string/search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:searchIcon="@drawable/findorange" />
 
     <TextView
         android:id="@+id/text_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginStart="30dp"
         android:fontFamily="@font/poppins_semibold"
-        android:textSize="18sp"
-        android:text="@string/result_text"
-        />
+        android:text=""
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/beer_list_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/default_margin_bot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/text_result"
-        android:layout_marginBottom="@dimen/default_margin_bot"
-        />
+        app:layout_constraintTop_toBottomOf="@id/text_result" />
 
 </LinearLayout>
