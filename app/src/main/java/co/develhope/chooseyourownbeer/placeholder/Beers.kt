@@ -4,7 +4,7 @@ import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import java.util.*
 
 object Beers {
-    private var beerUiList : MutableList<BeerUi> = emptyList<BeerUi>() as MutableList<BeerUi>
+    private var beerUiList : MutableList<BeerUi> = mutableListOf<BeerUi>()
 
     fun getBeers(): List<BeerUi> {
         return beerUiList
