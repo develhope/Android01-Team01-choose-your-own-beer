@@ -1,27 +1,26 @@
 package co.develhope.chooseyourownbeer.ui.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.SearchView
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.BeerAction
-import co.develhope.chooseyourownbeer.BeerAdapter
-import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.R
+import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
 import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.BeerAction
+import co.develhope.chooseyourownbeer.ui.BeerAdapter
+import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var listFiltered: List<Beer>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,49 +28,70 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(query: String?): Boolean {
                 if (query != null) {
-                    var listFiltered = Beers.getFilteredBeer(query)
-                    var count = listFiltered.size
-                    binding.textResult.text ="$count Risultati"
-                    binding.beerListSearch.apply {
-                        adapter = BeerAdapter(listFiltered) { action -> onAdapterClick(action) }
-                        layoutManager= LinearLayoutManager(context)
-                    }
-                } else {
-                    Toast.makeText(context, "Nessun elemento trovato", Toast.LENGTH_LONG).show()
+                    listFiltered = Beers.getFilteredBeer(query)
+                    val count = listFiltered.size
+                    printCount(count)
+                    showListFiltered()
                 }
-                return false
+                return true
             }
+
             override fun onQueryTextSubmit(query: String?): Boolean {
-                /*               if (beerList.contains(query)) {
-                                   adapterQuery?.filter?.filter(query)
-                               } else {
-                                   Toast.makeText(context, "Nessun elemento trovato", Toast.LENGTH_LONG).show()
-                               }
-               */                return false
+                if (query != null) {
+                    listFiltered = Beers.getFilteredBeer(query)
+                    val count = listFiltered.size
+                    printCount(count)
+                    showListFiltered()
+                }
+                return true
             }
         })
     }
-    private fun onAdapterClick(action:BeerAction){
-        when (action) {
-            //        is BeerAction.OnStarClick
-            is BeerAction.OnGoToDetailPageClick -> {
-                val idBeer= action.beer.id
-                val bundle= bundleOf("BEER_ID" to idBeer)
-                findNavController().navigate(R.id.action_navigation_search_to_beerDetail, bundle)
-            }
+
+    private fun printCount(count: Int) {
+        if (count != 0) {
+            binding.textResult.text = getString(R.string.search_result_text, count.toString())
+        } else {
+            binding.textResult.text = getString(R.string.search_result_nothing_text)
         }
     }
 
+    private fun showListFiltered() {
+        binding.beerListSearch.apply {
+            val listFiltered = Beers.getFilteredBeer(binding.searchView.query.toString())
+            val sortedList = listFiltered.sortedWith(compareBy<Beer> { it.favourite }.reversed().thenBy { it.id })
+            adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+    private fun onAdapterClick(action: BeerAction) {
+        when (action) {
+            is BeerAction.OnStarClick -> {
+                Beers.switchFavorite(action.beer)
+                showListFiltered()
+            }
+            is BeerAction.OnGoToDetailPageClick -> {
+                val idBeer = action.beer.id
+                val intent = Intent(context, BeerDetailActivity::class.java)
+                intent.putExtra("BEER_ID", idBeer)
+                startActivity(intent)
+            }
+            else -> {
+                return
+            }
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
