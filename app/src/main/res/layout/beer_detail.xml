@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_marginLeft="25dp"
-    android:layout_marginRight="25dp"
-    tools:context=".BeerDetail">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageBeer"
-        android:layout_width="153dp"
-        android:layout_height="242dp"
-        android:layout_marginTop="55dp"
-        android:layout_gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ichnusa"
-        android:contentDescription="@string/content_description" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
-    <ImageButton
-        android:id="@+id/favourite_button"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/emptystar"
-        android:contentDescription="@string/favourite_button" />
-
-    <TextView
-        android:id="@+id/titleBeer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:layout_marginTop="31dp"
-        android:textAppearance="@style/beer_name.detailed_view"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/ichnusa"/>
-
-    <TextView
-        android:id="@+id/size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/beer_text.size_detailed_view"
-        android:gravity="top"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/small_size"/>
-
-    <TextView
-        android:id="@+id/longDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="24dp"
-        android:text="@string/detail_ichnusa"
-        android:textAppearance="@style/beer_text.detailed_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/detail_ichnusa"/>
-
-    <TextView
-        android:id="@+id/beerError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/detail_error_margin_top"
-        android:text="@string/beer_detail_error"
-        android:textColor="@color/red"
-        android:visibility="gone" />
+        <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/beer_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/detail_layout_padding_horizontal"
+            tools:context=".ui.BeerDetailFragment">
 
 
+            <ImageView
+                android:id="@+id/imageBeer"
+                android:layout_width="@dimen/detail_image_width"
+                android:layout_height="@dimen/detail_image_height"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/detail_image_margin_top"
+                android:contentDescription="@string/content_description"
+                app:srcCompat="@drawable/ichnusa" />
 
-</LinearLayout >
+            <ImageButton
+                android:id="@+id/favourite_button"
+                android:layout_width="@dimen/detail_star_width"
+                android:layout_height="@dimen/detail_star_height"
+                android:background="@color/white"
+                android:contentDescription="@string/favourite_button"
+                app:srcCompat="@drawable/emptystar" />
+
+            <TextView
+                android:id="@+id/titleBeer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_title_margin_top"
+                android:gravity="top"
+                android:textAppearance="@style/beer_name.detailed_view"
+                tools:text="@string/ichnusa" />
+
+            <TextView
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_size_margin_top"
+                android:gravity="top"
+                android:textAppearance="@style/beer_text.size_detailed_view"
+                tools:text="@string/small_size" />
+
+            <TextView
+                android:id="@+id/longDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/detail_desc_margin_top"
+                android:layout_marginRight="@dimen/detail_desc_margin_right"
+                android:text="@string/detail_ichnusa"
+                android:textAppearance="@style/beer_text.detailed_view"
+                tools:text="@string/detail_ichnusa" />
+
+            <TextView
+                android:id="@+id/beerError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/detail_error_margin_top"
+                android:text="@string/beer_detail_error"
+                android:textColor="@color/red"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
