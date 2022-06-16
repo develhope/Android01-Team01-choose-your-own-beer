@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marginTop">32dp</dimen>
     <dimen name="margin_height_default">0dp</dimen>
     <dimen name="padding_default">12dp</dimen>
-    <dimen name="text_size">20dp</dimen>
+    <dimen name="text_size">20sp</dimen>
     <dimen name="margin_title_default">29dp</dimen>
     <dimen name="margin_top_title">32dp</dimen>
     <dimen name="margin_bottom_default">8dp</dimen>

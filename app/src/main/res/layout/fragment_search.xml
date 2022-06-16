@@ -12,9 +12,9 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginStart="@dimen/search_view_margin_start"
+        android:layout_marginTop="@dimen/search_view_margin_top"
+        android:layout_marginEnd="@dimen/search_view_margin_end"
         android:background="@drawable/shapeview_background"
         android:elevation="@dimen/elevation_search"
         android:iconifiedByDefault="false"
@@ -30,12 +30,12 @@
         android:id="@+id/text_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="@dimen/result_margin_start"
+        android:layout_marginTop="@dimen/result_margin_top"
+        android:layout_marginBottom="@dimen/result_margin_bottom"
         android:fontFamily="@font/poppins_semibold"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="@dimen/result_text_size" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/beer_list_search"

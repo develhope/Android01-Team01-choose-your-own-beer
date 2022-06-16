@@ -33,7 +33,7 @@ class BeerAdapter(private val beerList: List<Beer>, private val onBeerClick: (Be
     inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(beer: Beer) {
             with(beer) {
-                binding.imagePath.setImageResource(imagePath)
+                binding.iconBeer.setImageResource(iconBeer)
                 binding.title.text = title
                 binding.size.text = size.toString()
                 binding.shortDescription.text = shortDescription
