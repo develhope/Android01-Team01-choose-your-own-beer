@@ -28,7 +28,7 @@ fun List<BeersDto>.toListOfBeerUi():List<BeerUi> =
     this.map { beer ->
         BeerUi(
     id = beer.id.toInt(),
-    imagePath = 0,
+    iconBeer = 0,
     title = beer.name,
     size = beer.volume.value.toDouble(),
     shortDescription = beer.description,

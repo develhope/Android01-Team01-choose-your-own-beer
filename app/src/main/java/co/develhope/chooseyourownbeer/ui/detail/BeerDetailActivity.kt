@@ -42,7 +42,7 @@ class BeerDetailActivity : AppCompatActivity() {
     }
 
     private fun setupUI(beerUi: BeerUi) {
-        binding.imageBeer.setImageResource(beerUi.imagePath)
+        binding.imageBeer.setImageResource(beerUi.iconBeer)
         binding.titleBeer.text = beerUi.title
         binding.size.text = beerUi.size.toString()
         binding.longDescription.text = beerUi.fullDescription

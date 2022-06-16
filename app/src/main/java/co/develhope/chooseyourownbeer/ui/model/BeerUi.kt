@@ -2,7 +2,7 @@ package co.develhope.chooseyourownbeer.ui.model
 
 data class BeerUi(
     val id: Int,
-    val imagePath: Int,
+    val iconBeer: Int,
     val title: String,
     val size: Double,
     val shortDescription: String,
