@@ -7,9 +7,9 @@ import co.develhope.chooseyourownbeer.ui.MyViewModelFactory
 
 class MyApplication : Application (){
 
-    private val punkProvider = BeersProvider()
+    private val beersProvider = BeersProvider()
 
-    val mainViewModelFactory = MyViewModelFactory(punkProvider)
+    val mainViewModelFactory = MyViewModelFactory(beersProvider)
 
     override fun onCreate() {
         super.onCreate()
