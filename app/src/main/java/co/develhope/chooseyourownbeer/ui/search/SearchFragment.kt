@@ -82,9 +82,9 @@ class SearchFragment : Fragment() {
                 showListFiltered()
             }
             is BeerAction.OnGoToDetailPageClick -> {
-                val idBeer = action.beerUi.id
+                val beer = action.beerUi
                 val intent = Intent(context, BeerDetailActivity::class.java)
-                intent.putExtra("BEER_ID", idBeer)
+                intent.putExtra("BEER", beer)
                 startActivity(intent)
             }
             else -> {

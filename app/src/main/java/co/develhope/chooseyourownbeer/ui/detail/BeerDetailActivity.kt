@@ -19,11 +19,7 @@ class BeerDetailActivity : AppCompatActivity() {
         _binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val beerId: Int = intent.getIntExtra("BEER_ID", 0)
-
-        val beer = beerId.let {
-            Beers.getBeerFromId(it) } ?: {
-            binding.beerError.visibility = View.VISIBLE}
+        val beer = intent.getParcelableExtra<BeerUi>("BEER") ?: {binding.beerError.visibility = View.VISIBLE}
         setupUI(beer as BeerUi)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
