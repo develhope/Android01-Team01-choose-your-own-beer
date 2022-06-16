@@ -74,7 +74,7 @@ class HomeFragment : Fragment() {
         }
         viewModel.error.observe(viewLifecycleOwner) {
             Snackbar.make(
-                binding.fragmetHome,
+                binding.fragmentHome,
                 "Error:$it",
                 Snackbar.LENGTH_INDEFINITE
             ).setAction("Retry") {
