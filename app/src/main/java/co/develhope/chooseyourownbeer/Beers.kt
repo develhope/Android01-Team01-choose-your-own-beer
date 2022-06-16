@@ -1,7 +1,6 @@
 package co.develhope.chooseyourownbeer
 
 import co.develhope.chooseyourownbeer.model.Beer
-import co.develhope.chooseyourownbeer.R
 import java.util.*
 
 object Beers {
@@ -52,9 +51,8 @@ object Beers {
         return beerList
     }
 
-    fun getBeerFromId(idBeer: Long): Beer? {
-        val beer = beerList.find { it.id == idBeer }
-        return beer
+    fun getBeerFromId(idBeer: Int): Beer? {
+        return beerList.find { it.id == idBeer }
     }
 
     fun getFilteredBeer(text: String): List<Beer> {
