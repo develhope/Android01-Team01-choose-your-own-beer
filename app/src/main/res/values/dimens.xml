@@ -6,8 +6,20 @@
     <dimen name="radius_cardview">10dp</dimen>
     <dimen name="elevation_search">10dp</dimen>
     <dimen name="default_margin_bot">10dp</dimen>
-    <dimen name="title_size">18sp</dimen>
-    <dimen name="marginEnd_button">36dp</dimen>
+
+    <dimen name="title_size">18dp</dimen>
+    <dimen name="margin_title_default">29dp</dimen>
+    <dimen name="margin_top_title">32dp</dimen>
+    <dimen name="margin_bottom_default">8dp</dimen>
+
+
+    <dimen name="margin_top">32dp</dimen>
+    <dimen name="margin_height_default">0dp</dimen>
+    <dimen name="padding_default">12dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+
+    <dimen name="margin_end_button">36dp</dimen>
+
 
     <!-- BeerUi Detail page dimensions. -->
     <dimen name="detail_image_width">153dp</dimen>
@@ -21,6 +33,30 @@
     <dimen name="detail_desc_margin_right">24dp</dimen>
     <dimen name="detail_error_margin_top">24dp</dimen>
     <dimen name="detail_layout_padding_horizontal">25dp</dimen>
-
+    <dimen name="icon_beer_width">88dp</dimen>
+    <dimen name="icon_beer_height">139dp</dimen>
+    <dimen name="icon_beer_margin_start">34dp</dimen>
+    <dimen name="icon_beer_margin_top">22dp</dimen>
+    <dimen name="beer_title_width">130dp</dimen>
+    <dimen name="beer_title_margin_start">14dp</dimen>
+    <dimen name="beer_size_margin_top">10dp</dimen>
+    <dimen name="desc_width">160dp</dimen>
+    <dimen name="desc_margin_top">9dp</dimen>
+    <dimen name="desc_margin_end">28dp</dimen>
+    <dimen name="desc_text_size">12sp</dimen>
+    <dimen name="btn_margin_top">12dp</dimen>
+    <dimen name="btn_margin_bottom">16dp</dimen>
+    <dimen name="icon_margin_start">24dp</dimen>
+    <dimen name="icon_margin_bottom">19dp</dimen>
+    <dimen name="profile_margin_top">32dp</dimen>
+    <dimen name="profile_image_width">135dp</dimen>
+    <dimen name="profile_image_height">135dp</dimen>
+    <dimen name="search_view_margin_start">32dp</dimen>
+    <dimen name="search_view_margin_top">80dp</dimen>
+    <dimen name="search_view_margin_end">31dp</dimen>
+    <dimen name="result_margin_start">30dp</dimen>
+    <dimen name="result_margin_top">29dp</dimen>
+    <dimen name="result_margin_bottom">15dp</dimen>
+    <dimen name="result_text_size">18sp</dimen>
 
 </resources>
