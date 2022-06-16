@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_orange"
     android:orientation="vertical"
-    android:id="@+id/fragmet_home"
+    android:id="@+id/fragment_home"
     tools:context="co.develhope.chooseyourownbeer.ui.home.HomeFragment">
 
     <TextView
