@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 data class BeerUi(
     val id: Int,
-    val iconBeer: Int,
+    val iconBeer: String?,
     val title: String,
     val size: Double,
     val shortDescription: String,
@@ -13,7 +13,7 @@ data class BeerUi(
     val favourite: Boolean) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
-        parcel.readInt(),
+        parcel.readString(),
         parcel.readString().toString(),
         parcel.readDouble(),
         parcel.readString().toString(),
@@ -24,7 +24,7 @@ data class BeerUi(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
-        parcel.writeInt(iconBeer)
+        parcel.writeString(iconBeer)
         parcel.writeString(title)
         parcel.writeDouble(size)
         parcel.writeString(shortDescription)

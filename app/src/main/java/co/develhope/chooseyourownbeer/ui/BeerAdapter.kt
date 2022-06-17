@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerLayoutBinding
+import co.develhope.chooseyourownbeer.network.setImageByUrl
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
 
 sealed class BeerAction {
@@ -33,7 +34,11 @@ class BeerAdapter(private val beerUiList: List<BeerUi>, private val onBeerClick:
     inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(beerUi: BeerUi) {
             with(beerUi) {
-                binding.iconBeer.setImageResource(iconBeer)
+                binding.iconBeer.setImageByUrl(
+                    this.iconBeer,
+                    100,
+                    400
+                )
                 binding.title.text = title
                 binding.size.text = size.toString()
                 binding.shortDescription.text = shortDescription.substringBefore(".").plus(".")

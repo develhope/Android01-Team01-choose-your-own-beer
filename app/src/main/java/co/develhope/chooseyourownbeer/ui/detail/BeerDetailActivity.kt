@@ -7,6 +7,7 @@ import android.view.View
 import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
+import co.develhope.chooseyourownbeer.network.setImageByUrl
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
 
 class BeerDetailActivity : AppCompatActivity() {
@@ -38,7 +39,11 @@ class BeerDetailActivity : AppCompatActivity() {
     }
 
     private fun setupUI(beerUi: BeerUi) {
-        binding.imageBeer.setImageResource(beerUi.iconBeer)
+        binding.imageBeer.setImageByUrl(
+            beerUi.iconBeer,
+            300,
+            300
+        )
         binding.titleBeer.text = beerUi.title
         binding.size.text = beerUi.size.toString()
         binding.longDescription.text = beerUi.fullDescription
