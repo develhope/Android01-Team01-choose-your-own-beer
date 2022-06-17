@@ -42,7 +42,7 @@ class BeerDetailActivity : AppCompatActivity() {
         binding.imageBeer.setImageByUrl(
             beerUi.iconBeer,
             300,
-            600
+            1000
         )
         binding.titleBeer.text = beerUi.title
         binding.size.text = beerUi.size.toString()
