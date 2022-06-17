@@ -9,14 +9,13 @@
         android:id="@+id/navigation_home"
         android:name="co.develhope.chooseyourownbeer.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_search"
         android:name="co.develhope.chooseyourownbeer.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
-
     <fragment
         android:id="@+id/navigation_profile"
         android:name="co.develhope.chooseyourownbeer.ui.profile.ProfileFragment"

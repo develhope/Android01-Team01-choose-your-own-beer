@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.*
 import co.develhope.chooseyourownbeer.databinding.FragmentSearchBinding
-import co.develhope.chooseyourownbeer.model.Beer
+import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import co.develhope.chooseyourownbeer.ui.BeerAction
 import co.develhope.chooseyourownbeer.ui.BeerAdapter
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
@@ -20,7 +20,7 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var listFiltered: List<Beer>
+    private lateinit var listFiltered: List<BeerUi>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,7 +69,7 @@ class SearchFragment : Fragment() {
     private fun showListFiltered() {
         binding.beerListSearch.apply {
             val listFiltered = Beers.getFilteredBeer(binding.searchView.query.toString())
-            val sortedList = listFiltered.sortedWith(compareBy<Beer> { it.favourite }.reversed().thenBy { it.id })
+            val sortedList = listFiltered.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
             adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
             layoutManager = LinearLayoutManager(context)
         }
@@ -78,13 +78,13 @@ class SearchFragment : Fragment() {
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
             is BeerAction.OnStarClick -> {
-                Beers.switchFavorite(action.beer)
+                Beers.switchFavorite(action.beerUi)
                 showListFiltered()
             }
             is BeerAction.OnGoToDetailPageClick -> {
-                val idBeer = action.beer.id
+                val beer = action.beerUi
                 val intent = Intent(context, BeerDetailActivity::class.java)
-                intent.putExtra("BEER_ID", idBeer)
+                intent.putExtra("BEER", beer)
                 startActivity(intent)
             }
             else -> {
