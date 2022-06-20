@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_orange"
     android:orientation="vertical"
-    android:id="@+id/fragment_home"
     tools:context="co.develhope.chooseyourownbeer.ui.home.HomeFragment">
 
     <TextView
@@ -25,12 +25,22 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/beer_list"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/default_margin_bot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_text"
-        android:layout_marginBottom="@dimen/default_margin_bot"/>
+        app:layout_constraintTop_toBottomOf="@id/home_text" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/loading_progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/margin_progress_bar"
+        android:layout_marginEnd="@dimen/margin_progress_bar"
+        android:visibility="visible" />
 
 </LinearLayout>

@@ -58,5 +58,6 @@
     <dimen name="result_margin_top">29dp</dimen>
     <dimen name="result_margin_bottom">15dp</dimen>
     <dimen name="result_text_size">18sp</dimen>
+    <dimen name="margin_progress_bar">30dp</dimen>
 
 </resources>
