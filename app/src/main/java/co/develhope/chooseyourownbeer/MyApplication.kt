@@ -3,7 +3,7 @@ package com.android.example.cleanarchietetture_viemodellivedata
 import android.app.Application
 import android.util.Log
 import co.develhope.chooseyourownbeer.network.BeersProvider
-import co.develhope.chooseyourownbeer.ui.MyViewModelFactory
+import co.develhope.chooseyourownbeer.ui.model.MyViewModelFactory
 
 class MyApplication : Application (){
 

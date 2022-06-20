@@ -26,7 +26,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/detail_image_margin_top"
                 android:contentDescription="@string/content_description"
-                app:srcCompat="@drawable/ichnusa" />
+                app:srcCompat="@drawable/src_compact" />
 
             <ImageButton
                 android:id="@+id/favourite_button"
