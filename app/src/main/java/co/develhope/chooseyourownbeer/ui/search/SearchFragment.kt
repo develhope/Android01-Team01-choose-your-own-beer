@@ -37,11 +37,15 @@ class SearchFragment : Fragment() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(query: String?): Boolean {
-                if (query != null) {
+                if (query != null && query != "") {
                     listFiltered = Beers.getFilteredBeer(query)
                     val count = listFiltered.size
                     printCount(count)
-                    showListFiltered()
+                    showListFiltered(listFiltered)
+                } else if (query == "") {
+                    listFiltered = emptyList()
+                    binding.textResult.text = ""
+                    showListFiltered(listFiltered)
                 }
                 return true
             }
@@ -51,7 +55,7 @@ class SearchFragment : Fragment() {
                     listFiltered = Beers.getFilteredBeer(query)
                     val count = listFiltered.size
                     printCount(count)
-                    showListFiltered()
+                    showListFiltered(listFiltered)
                 }
                 return true
             }
@@ -66,9 +70,8 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun showListFiltered() {
+    private fun showListFiltered(listFiltered: List<BeerUi>) {
         binding.beerListSearch.apply {
-            val listFiltered = Beers.getFilteredBeer(binding.searchView.query.toString())
             val sortedList = listFiltered.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
             adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
             layoutManager = LinearLayoutManager(context)
@@ -79,7 +82,7 @@ class SearchFragment : Fragment() {
         when (action) {
             is BeerAction.OnStarClick -> {
                 Beers.switchFavorite(action.beerUi)
-                showListFiltered()
+                showListFiltered(Beers.getFilteredBeer(binding.searchView.query.toString()))
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val beer = action.beerUi
