@@ -1,20 +1,25 @@
 package co.develhope.chooseyourownbeer.ui.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
+import co.develhope.chooseyourownbeer.Beers.switchFavorite
 import co.develhope.chooseyourownbeer.ui.BeerAction
 import co.develhope.chooseyourownbeer.ui.BeerAdapter
-import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
+import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
+import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -39,8 +44,16 @@ class HomeFragment : Fragment() {
         val progress = binding.loadingProgressBar
         viewModel =
             (activity?.application as MyApplication).mainViewModelFactory.create(HomeViewModel::class.java)
-        viewModel.retrieveRepos()
-        progress.show()
+        viewModel.beers.observe(viewLifecycleOwner) {
+            Beers.refreshBeers(it as MutableList<BeerUi>)
+        }
+
+        if (Beers.getBeers().isEmpty()) {
+            viewModel.retrieveRepos()
+            progress.show()
+        } else {
+            showBeers(Beers.getBeers())
+        }
         observerRepos()
     }
 
@@ -48,7 +61,7 @@ class HomeFragment : Fragment() {
         when (action) {
             is BeerAction.OnStarClick -> {
                 Beers.switchFavorite(action.beerUi)
-                refreshList()
+                showBeers(Beers.getBeers())
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val beer = action.beerUi
@@ -56,12 +69,18 @@ class HomeFragment : Fragment() {
                 intent.putExtra("BEER", beer)
                 startActivity(intent)
             }
+            else -> {
+                return
+            }
         }
     }
 
     private fun showBeers(beersList: List<BeerUi>) {
         binding.beerList.apply {
-            adapter = BeerAdapter(beersList) { action ->
+            adapter = BeerAdapter(
+                beersList.sortedWith(compareBy<BeerUi> { it.favourite }.reversed()
+                    .thenBy { it.id })
+            ) { action ->
                 onAdapterClick(action)
             }
             layoutManager = LinearLayoutManager(context)
@@ -69,7 +88,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun observerRepos() {
-
         viewModel.beers.observe(viewLifecycleOwner) {
             showBeers(it)
         }
@@ -81,16 +99,6 @@ class HomeFragment : Fragment() {
             ).setAction("Retry") {
                 viewModel.retrieveRepos()
             }.show()
-        }
-    }
-
-    private fun refreshList() {
-        val beerList = Beers.getBeers()
-        val sortedList =
-            beerList.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
-        binding.beerList.apply {
-            adapter = BeerAdapter(sortedList) { action -> onAdapterClick(action) }
-            layoutManager = LinearLayoutManager(context)
         }
     }
 

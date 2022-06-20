@@ -6,12 +6,13 @@ import java.util.*
 object Beers {
     private var beerUiList : MutableList<BeerUi> = mutableListOf<BeerUi>()
 
-    fun getBeers(): List<BeerUi> {
+    fun getBeers(): MutableList<BeerUi> {
         return beerUiList
     }
 
-    fun getBeerFromId(idBeer: Int): BeerUi? {
-        return beerUiList.find { it.id == idBeer }
+    fun refreshBeers(updatedBeers: MutableList<BeerUi>): MutableList<BeerUi> {
+        beerUiList = updatedBeers
+        return beerUiList
     }
 
     fun getFilteredBeer(text: String): List<BeerUi> {
