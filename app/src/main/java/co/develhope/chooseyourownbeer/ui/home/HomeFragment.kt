@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var viewModel: HomeViewModel
 
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -36,9 +37,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val progress = binding.loadingProgressBar
         viewModel =
             (activity?.application as MyApplication).mainViewModelFactory.create(HomeViewModel::class.java)
         viewModel.retrieveRepos()
+        progress.show()
         observerRepos()
     }
 
@@ -70,7 +73,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun observerRepos() {
+    private fun observerRepos(){
         viewModel.beers.observe(viewLifecycleOwner) {
             showBeers(it)
         }
