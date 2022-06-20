@@ -1,5 +1,6 @@
 package co.develhope.chooseyourownbeer.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +33,8 @@ class BeerAdapter(private val beerUiList: List<BeerUi>, private val onBeerClick:
     }
 
     inner class BeerViewHolder(binding: BeerLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
+
         fun bind(beerUi: BeerUi) {
             with(beerUi) {
                 binding.iconBeer.setImageByUrl(
@@ -40,7 +43,7 @@ class BeerAdapter(private val beerUiList: List<BeerUi>, private val onBeerClick:
                     400
                 )
                 binding.title.text = title
-                binding.size.text = size.toString()
+                binding.size.text = "$size cl"
                 binding.shortDescription.text = shortDescription.substringBefore(".").plus(".")
                 if (beerUi.favourite) {
                     binding.icon.setImageResource(R.drawable.fullstar)
