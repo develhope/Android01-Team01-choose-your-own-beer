@@ -9,7 +9,7 @@ fun ImageView.setImageByUrl(url: String?, width: Int, height: Int) {
     Picasso.get()
         .load(url)
         .resize(width,height)
-        .placeholder(R.drawable.placeholder)
-        .error(R.drawable.placeholder)
+        .placeholder(R.drawable.shapeview_background)
+        .error(R.drawable.shapeview_background)
         .into(this)
 }
