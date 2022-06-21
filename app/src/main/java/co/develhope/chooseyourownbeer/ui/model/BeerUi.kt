@@ -7,7 +7,7 @@ data class BeerUi(
     val id: Int,
     val iconBeer: String?,
     val title: String,
-    val size: Double,
+    val size: Int,
     val shortDescription: String,
     val fullDescription: String,
     val favourite: Boolean) : Parcelable {
@@ -15,7 +15,7 @@ data class BeerUi(
         parcel.readInt(),
         parcel.readString(),
         parcel.readString().toString(),
-        parcel.readDouble(),
+        parcel.readInt(),
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readByte() != 0.toByte()
@@ -26,7 +26,7 @@ data class BeerUi(
         parcel.writeInt(id)
         parcel.writeString(iconBeer)
         parcel.writeString(title)
-        parcel.writeDouble(size)
+        parcel.writeInt(size)
         parcel.writeString(shortDescription)
         parcel.writeString(fullDescription)
         parcel.writeByte(if (favourite) 1 else 0)
