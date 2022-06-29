@@ -5,7 +5,6 @@ import co.develhope.chooseyourownbeer.network.dto.toListOfBeerUi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val PAGE_SIZE = 20
 
 class BeersProvider {
     private var retrofit = Retrofit.Builder()
