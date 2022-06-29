@@ -12,15 +12,18 @@ import co.develhope.chooseyourownbeer.ui.model.BeerUi
 
 class BeerDetailActivity : AppCompatActivity() {
 
-    private var _binding: BeerDetailBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: BeerDetailBinding
+
+    companion object {
+        private const val BEER = "BEER"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = BeerDetailBinding.inflate(layoutInflater)
+        binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val beer = intent.getParcelableExtra<BeerUi>("BEER") ?: {binding.beerError.visibility = View.VISIBLE}
+        val beer = intent.getParcelableExtra<BeerUi>(BEER) ?: {binding.beerError.visibility = View.VISIBLE}
         setupUI(beer as BeerUi)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
