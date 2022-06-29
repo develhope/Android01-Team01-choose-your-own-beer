@@ -3,30 +3,55 @@ package co.develhope.chooseyourownbeer.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import co.develhope.chooseyourownbeer.network.BeersProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel (private val beerProvider: BeersProvider): ViewModel() {
+sealed class HomeViewModelEvent {
+    data class HomeResult(val beers: List<BeerUi>) : HomeViewModelEvent()
+    data class HomeError(val message: String) : HomeViewModelEvent()
+}
 
-    private var _beers = MutableLiveData<List<BeerUi>>()
-    val beers: LiveData<List<BeerUi>>
-       get() = _beers
+class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
 
-    private var _error = MutableLiveData<String>()
-    val error: LiveData<String>
-        get() = _error
+    private var _result = MutableLiveData<HomeViewModelEvent>()
+    val result: LiveData<HomeViewModelEvent>
+        get() = _result
 
+    init {
+        checkIfEmpty()
+    }
 
-    fun retrieveRepos(){
+    private fun checkIfEmpty() {
         CoroutineScope(Dispatchers.Main).launch {
-            //@TODO Add here loading progress
+            if (Beers.getBeers().isEmpty()) {
+                retrieveRepos()
+            } else {
+                _result.value = HomeViewModelEvent.HomeResult(
+                    Beers.getBeers()
+                        .sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
+                )
+            }
+        }
+    }
+
+    fun checkBeers(beers: List<BeerUi>) {
+        Beers.refreshBeers(beers.sortedWith(
+            compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id }).toMutableList()
+        )
+    }
+
+
+    fun retrieveRepos() {
+        CoroutineScope(Dispatchers.Main).launch {
             try {
-                _beers.value = beerProvider.getFullListOfBeerRepos()
-            } catch (e : Exception){
-                _error.value = e.localizedMessage
+                _result.value = HomeViewModelEvent.HomeResult(beerProvider.getFullListOfBeerRepos())
+            } catch (e: Exception) {
+                _result.value = HomeViewModelEvent.HomeError("Error: ${e.localizedMessage}")
             }
         }
     }
