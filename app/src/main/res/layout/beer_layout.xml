@@ -26,7 +26,7 @@
                 android:layout_marginTop="@dimen/icon_beer_margin_top"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ichnusa" />
+                app:srcCompat="@drawable/src_compact" />
 
 
             <TextView
