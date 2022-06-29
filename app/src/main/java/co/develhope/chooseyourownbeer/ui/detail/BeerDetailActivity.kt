@@ -24,7 +24,11 @@ class BeerDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val beer = intent.getParcelableExtra<BeerUi>(BEER) ?: {binding.beerError.visibility = View.VISIBLE}
-        setupUI(beer as BeerUi)
+        if (beer is BeerUi) {
+            setupUI(beer)
+        } else {
+            //TODO show error
+        }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
