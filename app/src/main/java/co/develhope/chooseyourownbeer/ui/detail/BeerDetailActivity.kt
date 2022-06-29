@@ -45,11 +45,11 @@ class BeerDetailActivity : AppCompatActivity() {
     private fun setupUI(beerUi: BeerUi) {
         binding.imageBeer.setImageByUrl(
             beerUi.iconBeer,
-            300,
-            1100
+            resources.getDimension(R.dimen.detail_image_width).toInt(),
+            resources.getDimension(R.dimen.detail_image_height).toInt()
         )
         binding.titleBeer.text = beerUi.title
-        (beerUi.size.toString() +" cl").also { it.also { binding.size.text = it } }
+        (beerUi.size.toString() + " cl").also { it.also { binding.size.text = it } }
         binding.longDescription.text = beerUi.fullDescription
         if (beerUi.favourite) {
             binding.favouriteButton.setImageResource(R.drawable.fullstar)
