@@ -1,22 +1,18 @@
 package co.develhope.chooseyourownbeer.ui.home
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.Beers.switchFavorite
+import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.BeerAction
 import co.develhope.chooseyourownbeer.ui.BeerAdapter
-import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
-import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
+import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
@@ -42,7 +38,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val progress = binding.loadingProgressBar
-        viewModel =
             (activity?.application as MyApplication).mainViewModelFactory.create(HomeViewModel::class.java)
         viewModel.beers.observe(viewLifecycleOwner) {
             Beers.refreshBeers(it as MutableList<BeerUi>)
