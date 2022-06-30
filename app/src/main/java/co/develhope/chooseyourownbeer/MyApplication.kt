@@ -1,4 +1,4 @@
-package com.android.example.cleanarchietetture_viemodellivedata
+package co.develhope.chooseyourownbeer
 
 import android.app.Application
 import android.util.Log

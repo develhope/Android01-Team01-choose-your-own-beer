@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer.ui
+package co.develhope.chooseyourownbeer.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
