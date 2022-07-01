@@ -1,10 +1,12 @@
 package co.develhope.chooseyourownbeer.ui.detail
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.network.setImageByUrl
@@ -23,11 +25,13 @@ class BeerDetailActivity : AppCompatActivity() {
         binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val beer = intent.getParcelableExtra<BeerUi>(BEER) ?: {binding.beerError.visibility = View.VISIBLE}
+        val beer = intent.getParcelableExtra<BeerUi>(BEER) ?: {
+            binding.beerError.visibility = View.VISIBLE
+        }
         if (beer is BeerUi) {
             setupUI(beer)
         } else {
-            //TODO show error
+            Log.d("Casting error", "val beer is not a BeerUi")
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -55,7 +59,16 @@ class BeerDetailActivity : AppCompatActivity() {
         binding.titleBeer.text = beerUi.title
         (beerUi.size.toString() + " cl").also { it.also { binding.size.text = it } }
         binding.longDescription.text = beerUi.fullDescription
-        if (beerUi.favourite) {
+        setButtonState(beerUi.favourite)
+
+        binding.favouriteButton.setOnClickListener {
+            Beers.switchFavorite(beerUi)
+            setupUI(Beers.getBeers().first { it.id == beerUi.id })
+        }
+    }
+
+    private fun setButtonState(favourite: Boolean) {
+        if (favourite) {
             binding.favouriteButton.setImageResource(R.drawable.fullstar)
         } else {
             binding.favouriteButton.setImageResource(R.drawable.emptystar)
