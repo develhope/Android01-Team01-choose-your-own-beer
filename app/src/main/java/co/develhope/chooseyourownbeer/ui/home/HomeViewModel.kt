@@ -1,13 +1,14 @@
 package co.develhope.chooseyourownbeer.ui.home
 
-import android.util.Log
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import co.develhope.chooseyourownbeer.Beers
-import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import co.develhope.chooseyourownbeer.network.BeersProvider
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +18,9 @@ sealed class HomeViewModelEvent {
     data class HomeError(val message: String) : HomeViewModelEvent()
 }
 
-class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
+const val KEY_BEER_LIST = ""
+
+class HomeViewModel(private val beerProvider: BeersProvider, private val preferences: SharedPreferences) : ViewModel() {
 
     private var _result = MutableLiveData<HomeViewModelEvent>()
     val result: LiveData<HomeViewModelEvent>
@@ -29,6 +32,7 @@ class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
 
     private fun checkIfEmpty() {
         CoroutineScope(Dispatchers.Main).launch {
+        loadList()
             if (Beers.getBeers().isEmpty()) {
                 retrieveRepos()
             } else {
@@ -37,6 +41,20 @@ class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
                    beers.sort()
                 )
             }
+        }
+    }
+
+    private fun saveList() {
+        val json = Gson().toJson(Beers.getBeers().sort())
+        preferences.edit().putString(KEY_BEER_LIST, json).commit()
+    }
+
+    private fun loadList() {
+        val json = preferences.getString(KEY_BEER_LIST, null)
+        val type = object : TypeToken<MutableList<BeerUi>>() {}.type
+        val beers = Gson().fromJson<MutableList<BeerUi>>(json, type)
+        if (beers != null) {
+            Beers.refreshBeers(beers)
         }
     }
 
@@ -51,6 +69,7 @@ class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
             val beers = Beers.getBeers().sort()
             _result.value = HomeViewModelEvent.HomeResult(beers)
         }
+        saveList()
     }
 
     fun retrieveRepos() {
@@ -58,6 +77,7 @@ class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
             try {
                 val beers = beerProvider.getFullListOfBeerRepos()
                 _result.value = HomeViewModelEvent.HomeResult(beers.sort())
+                saveList()
             } catch (e: Exception) {
                 _result.value = HomeViewModelEvent.HomeError("Error: ${e.localizedMessage}")
             }
