@@ -1,16 +1,12 @@
 package co.develhope.chooseyourownbeer.ui.home
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.Beers.switchFavorite
 import co.develhope.chooseyourownbeer.ui.BeerAction
 import co.develhope.chooseyourownbeer.ui.BeerAdapter
@@ -19,7 +15,6 @@ import co.develhope.chooseyourownbeer.ui.model.BeerUi
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
 import com.google.android.material.snackbar.Snackbar
-import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -50,6 +45,7 @@ class HomeFragment : Fragment() {
         when (action) {
             is BeerAction.OnStarClick -> {
                 switchFavorite(action.beerUi)
+                viewModel.getSortedBeers()
                 observerRepos()
             }
             is BeerAction.OnGoToDetailPageClick -> {
@@ -79,7 +75,6 @@ class HomeFragment : Fragment() {
         viewModel.result.observe(viewLifecycleOwner) {
             when (it) {
                 is HomeViewModelEvent.HomeResult -> {
-                    viewModel.checkBeers(it.beers)
                     showBeers(it.beers)
                 }
                 is HomeViewModelEvent.HomeError -> Snackbar.make(

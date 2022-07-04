@@ -1,5 +1,6 @@
 package co.develhope.chooseyourownbeer.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,25 +32,32 @@ class HomeViewModel(private val beerProvider: BeersProvider) : ViewModel() {
             if (Beers.getBeers().isEmpty()) {
                 retrieveRepos()
             } else {
+                val beers = Beers.getBeers()
                 _result.value = HomeViewModelEvent.HomeResult(
-                    Beers.getBeers()
-                        .sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
+                   beers.sort()
                 )
             }
         }
     }
 
-    fun checkBeers(beers: List<BeerUi>) {
-        Beers.refreshBeers(beers.sortedWith(
-            compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id }).toMutableList()
-        )
+    private fun List<BeerUi>.sort() : List<BeerUi> {
+        val sortedBeers = this.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
+        Beers.refreshBeers(sortedBeers)
+        return sortedBeers
     }
 
+    fun getSortedBeers() {
+        CoroutineScope(Dispatchers.Main).launch {
+            val beers = Beers.getBeers().sort()
+            _result.value = HomeViewModelEvent.HomeResult(beers)
+        }
+    }
 
     fun retrieveRepos() {
         CoroutineScope(Dispatchers.Main).launch {
             try {
-                _result.value = HomeViewModelEvent.HomeResult(beerProvider.getFullListOfBeerRepos())
+                val beers = beerProvider.getFullListOfBeerRepos()
+                _result.value = HomeViewModelEvent.HomeResult(beers.sort())
             } catch (e: Exception) {
                 _result.value = HomeViewModelEvent.HomeError("Error: ${e.localizedMessage}")
             }
