@@ -23,7 +23,10 @@ const val KEY_BEER_LIST = "key_beer_list"
 const val KEY_SAVE_DATE = "key_save_date"
 const val KEY_EXPIRE_DATE = "key_expire_date"
 
-class HomeViewModel(private val beerProvider: BeersProvider, private val preferences: SharedPreferences) : ViewModel() {
+class HomeViewModel(
+    private val beerProvider: BeersProvider,
+    private val preferences: SharedPreferences
+) : ViewModel() {
 
     private var _result = MutableLiveData<HomeViewModelEvent>()
     private lateinit var expireDate: LocalDate
@@ -36,7 +39,7 @@ class HomeViewModel(private val beerProvider: BeersProvider, private val prefere
 
     private fun checkIfEmpty() {
         CoroutineScope(Dispatchers.Main).launch {
-        loadList()
+            loadList()
             val expireString = preferences.getString(KEY_EXPIRE_DATE, null)
             if (expireString != null) {
                 expireDate = LocalDate.parse(expireString)
@@ -46,7 +49,7 @@ class HomeViewModel(private val beerProvider: BeersProvider, private val prefere
             } else {
                 val beers = Beers.getBeers()
                 _result.value = HomeViewModelEvent.HomeResult(
-                   beers.sort()
+                    beers.sort()
                 )
             }
         }
@@ -74,8 +77,9 @@ class HomeViewModel(private val beerProvider: BeersProvider, private val prefere
         }
     }
 
-    private fun List<BeerUi>.sort() : List<BeerUi> {
-        val sortedBeers = this.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
+    private fun List<BeerUi>.sort(): List<BeerUi> {
+        val sortedBeers =
+            this.sortedWith(compareBy<BeerUi> { it.favourite }.reversed().thenBy { it.id })
         Beers.refreshBeers(sortedBeers)
         return sortedBeers
     }
