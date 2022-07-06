@@ -1,6 +1,8 @@
 package co.develhope.chooseyourownbeer.ui.home
 
 import android.content.SharedPreferences
+import android.icu.lang.UCharacter.GraphemeClusterBreak.L
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,17 +14,21 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 sealed class HomeViewModelEvent {
     data class HomeResult(val beers: List<BeerUi>) : HomeViewModelEvent()
     data class HomeError(val message: String) : HomeViewModelEvent()
 }
 
-const val KEY_BEER_LIST = ""
+const val KEY_BEER_LIST = "key_beer_list"
+const val KEY_SAVE_DATE = "key_save_date"
+const val KEY_EXPIRE_DATE = "key_expire_date"
 
 class HomeViewModel(private val beerProvider: BeersProvider, private val preferences: SharedPreferences) : ViewModel() {
 
     private var _result = MutableLiveData<HomeViewModelEvent>()
+    private lateinit var expireDate: LocalDate
     val result: LiveData<HomeViewModelEvent>
         get() = _result
 
@@ -33,7 +39,11 @@ class HomeViewModel(private val beerProvider: BeersProvider, private val prefere
     private fun checkIfEmpty() {
         CoroutineScope(Dispatchers.Main).launch {
         loadList()
-            if (Beers.getBeers().isEmpty()) {
+            val expireString = preferences.getString(KEY_EXPIRE_DATE, null)
+            if (expireString != null) {
+                expireDate = LocalDate.parse(expireString)
+            }
+            if (Beers.getBeers().isEmpty() || LocalDate.now().isAfter(expireDate)) {
                 retrieveRepos()
             } else {
                 val beers = Beers.getBeers()
@@ -47,6 +57,14 @@ class HomeViewModel(private val beerProvider: BeersProvider, private val prefere
     private fun saveList() {
         val json = Gson().toJson(Beers.getBeers().sort())
         preferences.edit().putString(KEY_BEER_LIST, json).commit()
+        saveDate()
+    }
+
+    private fun saveDate() {
+        val saveDate = LocalDate.now()
+        val expireDate = saveDate.plusDays(7)
+        preferences.edit().putString(KEY_SAVE_DATE, saveDate.toString()).commit()
+        preferences.edit().putString(KEY_EXPIRE_DATE, expireDate.toString()).commit()
     }
 
     private fun loadList() {
