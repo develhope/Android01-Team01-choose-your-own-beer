@@ -13,7 +13,7 @@ import co.develhope.chooseyourownbeer.ui.adapter.BeerAction
 import co.develhope.chooseyourownbeer.ui.adapter.BeerAdapter
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
 import co.develhope.chooseyourownbeer.ui.model.BeerUi
-import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
+import co.develhope.chooseyourownbeer.MyApplication
 import com.google.android.material.snackbar.Snackbar
 
 
