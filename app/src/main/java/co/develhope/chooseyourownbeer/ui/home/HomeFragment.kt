@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.Beers.switchFavorite
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.adapter.BeerAction
 import co.develhope.chooseyourownbeer.ui.adapter.BeerAdapter
