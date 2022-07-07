@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.Beers.switchFavorite
-import co.develhope.chooseyourownbeer.ui.BeerAction
-import co.develhope.chooseyourownbeer.ui.BeerAdapter
+import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
-import co.develhope.chooseyourownbeer.ui.model.BeerUi
+import co.develhope.chooseyourownbeer.ui.adapter.BeerAction
+import co.develhope.chooseyourownbeer.ui.adapter.BeerAdapter
 import co.develhope.chooseyourownbeer.ui.detail.BeerDetailActivity
-import com.android.example.cleanarchietetture_viemodellivedata.MyApplication
+import co.develhope.chooseyourownbeer.ui.model.BeerUi
+import co.develhope.chooseyourownbeer.MyApplication
 import com.google.android.material.snackbar.Snackbar
 
 
