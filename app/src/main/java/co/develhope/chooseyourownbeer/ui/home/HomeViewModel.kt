@@ -17,6 +17,7 @@ import java.time.LocalDate
 sealed class HomeViewModelEvent {
     data class HomeResult(val beers: List<BeerUi>) : HomeViewModelEvent()
     data class HomeError(val message: String) : HomeViewModelEvent()
+    object HomeLoading : HomeViewModelEvent()
 }
 
 const val KEY_BEER_LIST = "key_beer_list"
@@ -95,6 +96,7 @@ class HomeViewModel(
     fun retrieveRepos() {
         CoroutineScope(Dispatchers.Main).launch {
             try {
+                _result.value = HomeViewModelEvent.HomeLoading
                 val beers = beerProvider.getFullListOfBeerRepos()
                 _result.value = HomeViewModelEvent.HomeResult(beers.sort())
                 saveList()

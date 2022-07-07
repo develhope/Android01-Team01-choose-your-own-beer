@@ -35,10 +35,11 @@
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loading_progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="?android:attr/progressBarStyle"
+        android:indeterminateTint="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/margin_progress_bar"
         android:layout_marginEnd="@dimen/margin_progress_bar"
         android:visibility="visible" />

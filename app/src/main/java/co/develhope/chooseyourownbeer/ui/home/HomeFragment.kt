@@ -84,6 +84,7 @@ class HomeFragment : Fragment() {
                 ).setAction("Retry") {
                     viewModel.retrieveRepos()
                 }.show()
+                is HomeViewModelEvent.HomeLoading -> binding.loadingProgressBar.show()
             }
         }
     }
