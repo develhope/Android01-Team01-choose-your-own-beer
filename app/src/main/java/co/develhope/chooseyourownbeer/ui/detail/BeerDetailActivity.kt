@@ -2,7 +2,6 @@ package co.develhope.chooseyourownbeer.ui.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -25,13 +24,12 @@ class BeerDetailActivity : AppCompatActivity() {
         binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val beer = intent.getParcelableExtra<BeerUi>(BEER) ?: {
-            binding.beerError.visibility = View.VISIBLE
-        }
-        if (beer is BeerUi) {
+        val beer: BeerUi? = intent.getParcelableExtra(BEER)
+        if (beer != null) {
             setupUI(beer)
+            binding.beerError.visibility = View.INVISIBLE
         } else {
-            Log.d("Casting error", "val beer is not a BeerUi")
+            binding.beerError.visibility = View.VISIBLE
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
