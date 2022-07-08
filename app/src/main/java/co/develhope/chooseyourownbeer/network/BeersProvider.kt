@@ -19,3 +19,7 @@ class BeersProvider {
         return beersService.getBeersList().toListOfBeerUi()
         }
     }
+
+private fun Any.toListOfBeerUi(): List<BeerUi> {
+    return emptyList()
+}
