@@ -22,7 +22,7 @@
 
 
     <!-- BeerUi Detail page dimensions. -->
-    <dimen name="detail_image_width">153dp</dimen>
+    <dimen name="detail_image_width">70dp</dimen>
     <dimen name="detail_image_height">242dp</dimen>
     <dimen name="detail_image_margin_top">55dp</dimen>
     <dimen name="detail_star_width">32dp</dimen>

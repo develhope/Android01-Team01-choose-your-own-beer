@@ -1,10 +1,11 @@
 package co.develhope.chooseyourownbeer.ui.detail
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import co.develhope.chooseyourownbeer.Beers
 import co.develhope.chooseyourownbeer.R
 import co.develhope.chooseyourownbeer.databinding.BeerDetailBinding
 import co.develhope.chooseyourownbeer.network.setImageByUrl
@@ -12,16 +13,24 @@ import co.develhope.chooseyourownbeer.ui.model.BeerUi
 
 class BeerDetailActivity : AppCompatActivity() {
 
-    private var _binding: BeerDetailBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: BeerDetailBinding
+
+    companion object {
+        private const val BEER = "BEER"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = BeerDetailBinding.inflate(layoutInflater)
+        binding = BeerDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val beer = intent.getParcelableExtra<BeerUi>("BEER") ?: {binding.beerError.visibility = View.VISIBLE}
-        setupUI(beer as BeerUi)
+        val beer: BeerUi? = intent.getParcelableExtra(BEER)
+        if (beer != null) {
+            setupUI(beer)
+            binding.beerError.visibility = View.INVISIBLE
+        } else {
+            binding.beerError.visibility = View.VISIBLE
+        }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
@@ -42,13 +51,22 @@ class BeerDetailActivity : AppCompatActivity() {
     private fun setupUI(beerUi: BeerUi) {
         binding.imageBeer.setImageByUrl(
             beerUi.iconBeer,
-            300,
-            1100
+            resources.getDimension(R.dimen.detail_image_width).toInt(),
+            resources.getDimension(R.dimen.detail_image_height).toInt()
         )
         binding.titleBeer.text = beerUi.title
-        (beerUi.size.toString() +" cl").also { it.also { binding.size.text = it } }
+        (beerUi.size.toString() + " cl").also { it.also { binding.size.text = it } }
         binding.longDescription.text = beerUi.fullDescription
-        if (beerUi.favourite) {
+        setButtonState(beerUi.favourite)
+
+        binding.favouriteButton.setOnClickListener {
+            Beers.switchFavorite(beerUi)
+            setupUI(Beers.getBeers().first { it.id == beerUi.id })
+        }
+    }
+
+    private fun setButtonState(favourite: Boolean) {
+        if (favourite) {
             binding.favouriteButton.setImageResource(R.drawable.fullstar)
         } else {
             binding.favouriteButton.setImageResource(R.drawable.emptystar)
