@@ -44,8 +44,7 @@ class HomeFragment : Fragment() {
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
             is BeerAction.OnStarClick -> {
-                switchFavorite(action.beerUi)
-                viewModel.getSortedBeers()
+                viewModel.updateScreen(action.beerUi)
                 observerRepos()
             }
             is BeerAction.OnGoToDetailPageClick -> {

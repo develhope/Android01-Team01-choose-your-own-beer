@@ -85,12 +85,17 @@ class HomeViewModel(
         return sortedBeers
     }
 
-    fun getSortedBeers() {
+    private fun getSortedBeers() {
         CoroutineScope(Dispatchers.Main).launch {
             val beers = Beers.getBeers().sort()
             _result.value = HomeViewModelEvent.HomeResult(beers)
         }
         saveList()
+    }
+
+    fun updateScreen(beer: BeerUi) {
+        Beers.switchFavorite(beer)
+        getSortedBeers()
     }
 
     fun retrieveRepos() {
