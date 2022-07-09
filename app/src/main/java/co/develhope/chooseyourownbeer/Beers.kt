@@ -10,8 +10,8 @@ object Beers {
         return beerUiList
     }
 
-    fun refreshBeers(updatedBeers: MutableList<BeerUi>): MutableList<BeerUi> {
-        beerUiList = updatedBeers
+    fun refreshBeers(updatedBeers: List<BeerUi>): List<BeerUi> {
+        beerUiList = updatedBeers as MutableList<BeerUi>
         return beerUiList
     }
 

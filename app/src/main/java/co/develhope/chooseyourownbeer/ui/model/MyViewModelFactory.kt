@@ -1,5 +1,6 @@
 package co.develhope.chooseyourownbeer.ui.model
 
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import co.develhope.chooseyourownbeer.network.BeersProvider
@@ -8,10 +9,10 @@ import java.lang.IllegalArgumentException
 
 //Add extend view model
 
-class MyViewModelFactory(private val beersProvider: BeersProvider) : ViewModelProvider.Factory {
+class MyViewModelFactory(private val beersProvider: BeersProvider, private val preferences: SharedPreferences) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
-            return HomeViewModel(beersProvider) as T
+            return HomeViewModel(beersProvider, preferences) as T
         }
         throw IllegalArgumentException("ViewModel unKnow")
     }

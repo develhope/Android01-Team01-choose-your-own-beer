@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.develhope.chooseyourownbeer.Beers
+import co.develhope.chooseyourownbeer.Beers.switchFavorite
 import co.develhope.chooseyourownbeer.databinding.FragmentHomeBinding
 import co.develhope.chooseyourownbeer.ui.adapter.BeerAction
 import co.develhope.chooseyourownbeer.ui.adapter.BeerAdapter
@@ -36,27 +36,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val progress = binding.loadingProgressBar
         viewModel =
             (activity?.application as MyApplication).mainViewModelFactory.create(HomeViewModel::class.java)
-        viewModel.beers.observe(viewLifecycleOwner) {
-            Beers.refreshBeers(it as MutableList<BeerUi>)
-        }
-
-        if (Beers.getBeers().isEmpty()) {
-            viewModel.retrieveRepos()
-            progress.show()
-        } else {
-            showBeers(Beers.getBeers())
-        }
         observerRepos()
     }
 
     private fun onAdapterClick(action: BeerAction) {
         when (action) {
             is BeerAction.OnStarClick -> {
-                Beers.switchFavorite(action.beerUi)
-                showBeers(Beers.getBeers())
+                viewModel.updateScreen(action.beerUi)
+                observerRepos()
             }
             is BeerAction.OnGoToDetailPageClick -> {
                 val beer = action.beerUi
@@ -73,8 +62,7 @@ class HomeFragment : Fragment() {
     private fun showBeers(beersList: List<BeerUi>) {
         binding.beerList.apply {
             adapter = BeerAdapter(
-                beersList.sortedWith(compareBy<BeerUi> { it.favourite }.reversed()
-                    .thenBy { it.id })
+                beersList
             ) { action ->
                 onAdapterClick(action)
             }
@@ -83,17 +71,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun observerRepos() {
-        viewModel.beers.observe(viewLifecycleOwner) {
-            showBeers(it)
-        }
-        viewModel.error.observe(viewLifecycleOwner) {
-            Snackbar.make(
-                binding.fragmentHome,
-                "Error:$it",
-                Snackbar.LENGTH_INDEFINITE
-            ).setAction("Retry") {
-                viewModel.retrieveRepos()
-            }.show()
+        viewModel.result.observe(viewLifecycleOwner) {
+            when (it) {
+                is HomeViewModelEvent.HomeResult -> {
+                    showBeers(it.beers)
+                }
+                is HomeViewModelEvent.HomeError -> Snackbar.make(
+                    binding.fragmentHome,
+                    "Error:$it",
+                    Snackbar.LENGTH_INDEFINITE
+                ).setAction("Retry") {
+                    viewModel.retrieveRepos()
+                }.show()
+                is HomeViewModelEvent.HomeLoading -> binding.loadingProgressBar.show()
+            }
         }
     }
 
