@@ -53,7 +53,7 @@
                 android:id="@+id/shortDescription"
                 style="@style/beer_text"
                 android:layout_width="@dimen/text_size_very_big"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/margin_very_small"
                 android:layout_marginEnd="@dimen/margin_big"
                 android:text="@string/preview_ichnusa"

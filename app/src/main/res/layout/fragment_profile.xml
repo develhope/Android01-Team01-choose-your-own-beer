@@ -13,7 +13,6 @@
         android:background="@color/light_orange"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/app_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -62,8 +61,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/app_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_height="@dimen/dimension_very_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,6 +70,7 @@
         <TextView
             android:id="@+id/app_version"
             style="@style/beer_text.card_preview"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_version_text"
@@ -85,7 +84,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/email_input_text"
             android:inputType="textEmailAddress"
-            android:padding="14dp"
+            android:padding="@dimen/margin_very_small"
             app:layout_constraintBottom_toTopOf="@id/logout_btn"
             app:layout_constraintEnd_toStartOf="@+id/contact_btn"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +107,7 @@
             style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:text="@string/logout_btn_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

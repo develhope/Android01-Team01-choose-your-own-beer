@@ -1,9 +1,9 @@
 <resources>
+
     <!-- Standard dimension for text. -->
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_normal">18dp</dimen>
     <dimen name="text_size_very_big">160dp</dimen>
-
 
     <!-- Standard dimension for margin. -->
     <dimen name="margin_very_small">8dp</dimen>
@@ -12,6 +12,7 @@
     <dimen name="margin_medium">24dp</dimen>
     <dimen name="margin_big">32dp</dimen>
     <dimen name="margin_very_big">80dp</dimen>
+    <dimen name="dimension_very_big">500dp</dimen>
 
     <!-- Dimension for image -->
     <dimen name="profile_image_size">135dp</dimen>
@@ -21,11 +22,7 @@
     <dimen name="icon_beer_height">139dp</dimen>
     <dimen name="icon_beer_width">88dp</dimen>
 
-
     <!-- Dimension for attribute elevation or radius. -->
     <dimen name="radius_elevation_default">10dp</dimen>
-
-
-    130 DP
 
 </resources>
