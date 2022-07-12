@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/detail_layout_padding_horizontal"
+            android:paddingHorizontal="@dimen/margin_medium"
             tools:context=".ui.BeerDetailFragment">
 
 
@@ -24,14 +24,14 @@
                 android:layout_width="@dimen/detail_image_width"
                 android:layout_height="@dimen/detail_image_height"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/detail_image_margin_top"
+                android:layout_marginTop="@dimen/margin_big"
                 android:contentDescription="@string/content_description"
                 app:srcCompat="@drawable/src_compact" />
 
             <ImageButton
                 android:id="@+id/favourite_button"
-                android:layout_width="@dimen/detail_star_width"
-                android:layout_height="@dimen/detail_star_height"
+                android:layout_width="@dimen/star_size"
+                android:layout_height="@dimen/star_size"
                 android:background="@color/white"
                 android:contentDescription="@string/favourite_button"
                 app:srcCompat="@drawable/emptystar" />
@@ -40,7 +40,7 @@
                 android:id="@+id/titleBeer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_title_margin_top"
+                android:layout_marginTop="@dimen/margin_big"
                 android:gravity="top"
                 android:textAppearance="@style/beer_name.detailed_view"
                 tools:text="@string/ichnusa" />
@@ -49,7 +49,7 @@
                 android:id="@+id/size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_size_margin_top"
+                android:layout_marginTop="@dimen/margin_very_small"
                 android:gravity="top"
                 android:textAppearance="@style/beer_text.size_detailed_view"
                 tools:text="@string/small_size" />
@@ -58,8 +58,8 @@
                 android:id="@+id/longDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/detail_desc_margin_top"
-                android:layout_marginRight="@dimen/detail_desc_margin_right"
+                android:layout_marginTop="@dimen/margin_big"
+                android:layout_marginRight="@dimen/margin_medium"
                 android:text="@string/detail_ichnusa"
                 android:textAppearance="@style/beer_text.detailed_view"
                 tools:text="@string/detail_ichnusa" />
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/detail_error_margin_top"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:text="@string/beer_detail_error"
                 android:textColor="@color/red"
                 android:visibility="gone" />
