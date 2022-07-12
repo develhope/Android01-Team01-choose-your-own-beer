@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/imageBeer"
-                android:layout_width="@dimen/detail_image_width"
-                android:layout_height="@dimen/detail_image_height"
+                android:layout_width="@dimen/image_width_big_detail"
+                android:layout_height="@dimen/image_height_big_detail"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_big"
                 android:contentDescription="@string/content_description"
