@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import co.develhope.chooseyourownbeer.network.BeersProvider
-import co.develhope.chooseyourownbeer.ui.model.MyViewModelFactory
+import co.develhope.chooseyourownbeer.ui.factory.MyViewModelFactory
 
 class MyApplication : Application (){
 
