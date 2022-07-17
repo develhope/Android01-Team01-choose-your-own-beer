@@ -51,8 +51,8 @@ class BeerDetailActivity : AppCompatActivity() {
     private fun setupUI(beerUi: BeerUi) {
         binding.imageBeer.setImageByUrl(
             beerUi.iconBeer,
-            resources.getDimension(R.dimen.detail_image_width).toInt(),
-            resources.getDimension(R.dimen.detail_image_height).toInt()
+            resources.getDimension(R.dimen.image_width_big_detail).toInt(),
+            resources.getDimension(R.dimen.image_height_big_detail).toInt()
         )
         binding.titleBeer.text = beerUi.title
         (beerUi.size.toString() + " cl").also { it.also { binding.size.text = it } }
