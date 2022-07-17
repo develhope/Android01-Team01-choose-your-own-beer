@@ -1,4 +1,4 @@
-package co.develhope.chooseyourownbeer.ui.model
+package co.develhope.chooseyourownbeer.ui.factory
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
