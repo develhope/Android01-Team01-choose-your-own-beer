@@ -16,7 +16,7 @@ object Beers {
     }
 
     fun getFilteredBeer(text: String): List<BeerUi> {
-        return beerUiList.filter { it.title.contains(text) }
+        return beerUiList.filter { it.title.contains(text, ignoreCase = true) }
     }
 
     fun switchFavorite(beerUi: BeerUi) {
