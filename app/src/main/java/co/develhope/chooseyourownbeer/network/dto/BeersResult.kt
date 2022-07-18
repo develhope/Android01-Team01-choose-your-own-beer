@@ -1,26 +1,40 @@
 package co.develhope.chooseyourownbeer.network.dto
 
+
 import android.util.Log
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import co.develhope.chooseyourownbeer.R
-import co.develhope.chooseyourownbeer.ui.MainActivity
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import co.develhope.chooseyourownbeer.network.BeerService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-class BeersResult {
+
+private lateinit var MainViewModel : ViewModel
+
+class BeersResult : ArrayList<BeersResult>() {
+
+    private val retrofit =
+        Retrofit.Builder().baseUrl("https://api.punkapi.com/v2/").addConverterFactory(
+            GsonConverterFactory.create()
+        ).build()
+    private val beerService = retrofit.create(BeerService::class.java)
+
+    val beerUi = MutableLiveData<BeersResult>()
 
 
-
-    fun  list(mainActivity: MainActivity, beersResult: BeersResult) {
-        Log.d("MainActivity", "list of beers: ${(beersResult)}")
-
-        val list = mainActivity.findViewById<RecyclerView>(R.id.beer_list)
-        list.visibility = View.VISIBLE
-        list.adapter = list.adapter
-        list.layoutManager = LinearLayoutManager(mainActivity)
-
+    fun beerUi() {
+        Log.d("MainViewModel", "list of beers")
+        CoroutineScope(Dispatchers.IO).launch {
+            val beers= beerService.getBeersList()
+            Log.d("test", "test")
         }
     }
+
+}
+
 
 
 
