@@ -1,41 +1,36 @@
 package co.develhope.chooseyourownbeer.network.dto
 
-
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import co.develhope.chooseyourownbeer.network.BeerService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
+sealed class BeersResult(private val beersDto : BeersDto) : ViewModel() {
+
+    private var _beers = MutableLiveData<List<BeersDto>>()
+    val beers : LiveData<List<BeersDto>>
+        get() = _beers
+
+    private var _error = MutableLiveData<String>()
+    val error : LiveData<String>
+        get() = _error
 
 
-private lateinit var MainViewModel : ViewModel
-
-class BeersResult : ArrayList<BeersResult>() {
-
-    private val retrofit =
-        Retrofit.Builder().baseUrl("https://api.punkapi.com/v2/").addConverterFactory(
-            GsonConverterFactory.create()
-        ).build()
-    private val beerService = retrofit.create(BeerService::class.java)
-
-    val beerUi = MutableLiveData<BeersResult>()
-
-
-    fun beerUi() {
-        Log.d("MainViewModel", "list of beers")
-        CoroutineScope(Dispatchers.IO).launch {
-            val beers= beerService.getBeersList()
-            Log.d("test", "test")
+    fun get() {
+        CoroutineScope(Dispatchers.Main).launch {
+            //@TODO Add here loading progress
+            try {
+                _beers.value = null
+            } catch (e : Exception) {
+                _error.value = e.localizedMessage
+            }
         }
     }
-
 }
 
 
-
-
-
+//Guarda dove viene usato BeerResult. per esempio BeersProvider.
+// cattura lì gli errori di rete e restituisci un oggetto di una sealed class (es. Result, Error)
+// Modifica i viewmodel che usano la funzione per la chiamata di rete di conseguenza
