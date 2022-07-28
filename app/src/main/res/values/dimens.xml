@@ -3,6 +3,7 @@
     <!-- Standard dimension for text. -->
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_normal">18dp</dimen>
+    <dimen name="text_size_big">20dp</dimen>
     <dimen name="text_size_very_big">160dp</dimen>
 
     <!-- Standard dimension for margin. -->

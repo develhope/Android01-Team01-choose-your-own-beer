@@ -19,7 +19,7 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/our_beers"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_normal"
+        android:textSize="@dimen/text_size_big"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
